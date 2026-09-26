@@ -4,6 +4,8 @@ import LoRaIcon from '../icons/LoRa'
 import MeshtasticIcon from '../icons/Meshtastic'
 import ShieldIcon from '../icons/Shield'
 import BoxIcon from '../icons/Box'
+import BadgeIcon from '../icons/Badge'
+import DownloadIcon from '../icons/Download'
 
 const badges = [
   { icon: LoRaIcon, label: 'Comunicação LoRa' },
@@ -76,15 +78,11 @@ export default function HeroSection() {
                   py: 1,
                 }}
               >
-                <span
-                  style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 'bold',
-                    color: theme.palette.primary.main,
-                  }}
+                <Box
+                  sx={{ color: theme.palette.primary.main, display: 'flex', width: 16, height: 16 }}
                 >
-                  ▼
-                </span>
+                  <BadgeIcon />
+                </Box>
                 <Typography
                   variant="caption"
                   sx={{ fontWeight: 'bold', color: theme.palette.primary.main }}
@@ -136,9 +134,10 @@ export default function HeroSection() {
                 variant="contained"
                 color="primary"
                 href="#stl"
+                startIcon={<DownloadIcon />}
                 sx={{ fontWeight: 600, textTransform: 'none', fontSize: '0.95rem' }}
               >
-                ⬇ Ver arquivos STL
+                Ver arquivos STL
               </Button>
               <Button
                 variant="outlined"

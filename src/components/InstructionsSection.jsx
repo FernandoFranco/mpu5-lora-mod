@@ -1,7 +1,7 @@
 import { Box, Container, Typography, Grid, Button } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import StepAccordion from './StepAccordion'
-import FileDownloadIcon from '@mui/icons-material/FileDownload'
+import DownloadIcon from '../icons/Download'
 
 const steps = [
   { id: 'cortes', title: 'Cortes', content: 'Como preparar as peças para impressão e cortes' },
@@ -40,10 +40,10 @@ export default function InstructionsSection() {
         <Button
           variant="outlined"
           color="primary"
-          startIcon={<FileDownloadIcon />}
+          startIcon={<DownloadIcon />}
           sx={{ textTransform: 'none', fontWeight: 600 }}
         >
-          ⬇ Ver instruções completas
+          Ver instruções completas
         </Button>
       </Container>
     </Box>

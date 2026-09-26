@@ -2,7 +2,7 @@ import { Box, Container, Typography, Grid, Button } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import STLCard from './STLCard'
 import BoxIcon from '../icons/Box'
-import FileDownloadIcon from '@mui/icons-material/FileDownload'
+import DownloadIcon from '../icons/Download'
 
 const stlFiles = [
   {
@@ -88,10 +88,10 @@ export default function STLGrid() {
         <Button
           variant="contained"
           color="primary"
-          startIcon={<FileDownloadIcon />}
+          startIcon={<DownloadIcon />}
           sx={{ textTransform: 'none', fontWeight: 600 }}
         >
-          ⬇ Baixar todos os STL
+          Baixar todos os STL
         </Button>
       </Container>
     </Box>

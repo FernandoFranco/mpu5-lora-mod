@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, Typography, Button, Box, useTheme } from '@mui/material'
-import DownloadIcon from '@mui/icons-material/Download'
+import DownloadIcon from '../icons/Download'
 
 export default function STLCard({ id, name, image, downloadUrl }) {
   const theme = useTheme()

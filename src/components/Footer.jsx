@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Link, useTheme } from '@mui/material'
-import GitHubIcon from '@mui/icons-material/GitHub'
+import GitHubIconCustom from '../icons/GitHub'
 import LoRaIcon from '../icons/LoRa'
 
 export default function Footer() {
@@ -62,7 +62,7 @@ export default function Footer() {
                   '&:hover': { color: theme.palette.primary.main },
                 }}
               >
-                <GitHubIcon fontSize="small" /> GitHub
+                <GitHubIconCustom /> GitHub
               </Link>
               <Link
                 href="https://discord.gg"

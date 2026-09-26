@@ -14,10 +14,13 @@ import {
   useTheme,
 } from '@mui/material'
 
-import CloseIcon from '@mui/icons-material/Close'
-import GitHubIcon from '@mui/icons-material/GitHub'
+import CloseIcon from '../icons/Close'
+import GitHubIconCustom from '../icons/GitHub'
 import LoRaIcon from '../icons/LoRa'
-import MenuIcon from '@mui/icons-material/Menu'
+import MenuIcon from '../icons/Menu'
+import SunIcon from '../icons/Sun'
+import MoonIcon from '../icons/Moon'
+import HeartIcon from '../icons/Heart'
 import { useState } from 'react'
 
 const navLinks = [
@@ -133,7 +136,7 @@ export default function Navbar({ onToggleTheme, isDark }) {
               '&:hover': { color: theme.palette.primary.main },
             }}
           >
-            <GitHubIcon fontSize="small" />
+            <GitHubIconCustom />
           </IconButton>
         </Link>
 
@@ -143,14 +146,16 @@ export default function Navbar({ onToggleTheme, isDark }) {
           sx={{
             color: theme.palette.text.primary,
             '&:hover': { color: theme.palette.primary.main },
+            display: 'flex',
           }}
         >
-          {isDark ? '☀️' : '🌙'}
+          {isDark ? <SunIcon /> : <MoonIcon />}
         </IconButton>
 
         <Button
           variant="outlined"
           size="small"
+          startIcon={<HeartIcon />}
           sx={{
             textTransform: 'none',
             borderColor: theme.palette.primary.main,
@@ -162,11 +167,11 @@ export default function Navbar({ onToggleTheme, isDark }) {
             fontSize: '0.85rem',
           }}
         >
-          ❤️ Apoie
+          Apoie
         </Button>
 
         {isMobile && (
-          <IconButton onClick={() => setDrawerOpen(true)} color="inherit">
+          <IconButton onClick={() => setDrawerOpen(true)} color="inherit" sx={{ display: 'flex' }}>
             <MenuIcon />
           </IconButton>
         )}
@@ -181,7 +186,7 @@ export default function Navbar({ onToggleTheme, isDark }) {
             height: '100%',
           }}
         >
-          <IconButton onClick={() => setDrawerOpen(false)}>
+          <IconButton onClick={() => setDrawerOpen(false)} sx={{ display: 'flex' }}>
             <CloseIcon />
           </IconButton>
           <List>
