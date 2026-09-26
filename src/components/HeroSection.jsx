@@ -478,12 +478,21 @@ export default function HeroSection() {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 1,
+                    alignItems: 'center',
                     paddingLeft: idx > 0 ? 3 : 0,
                     borderLeft: idx > 0 ? `1px solid ${isDark ? '#2C3327' : '#D0D0D0'}` : 'none',
-                    textAlign: 'left',
+                    textAlign: 'center',
                   }}
                 >
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 0.5 }}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 1,
+                      mb: 0.5,
+                    }}
+                  >
                     <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
                       <IconComponent size="lg" />
                     </Box>
