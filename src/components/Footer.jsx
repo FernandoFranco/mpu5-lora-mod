@@ -30,7 +30,9 @@ export default function Footer() {
                 <LoRaIcon size="md" />
               </Box>
               <Box>
-                <Box sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1 }}>MPU5 REAL</Box>
+                <Box sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1 }}>
+                  MPU5 LoRa Mod
+                </Box>
                 <Box
                   sx={{ fontSize: '0.7rem', color: theme.palette.text.secondary, lineHeight: 1 }}
                 >

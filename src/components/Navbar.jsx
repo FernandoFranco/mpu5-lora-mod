@@ -71,7 +71,7 @@ export default function Navbar({ onToggleTheme, isDark }) {
             <LoRaIcon size="md" />
           </Box>
           <Box>
-            <Box sx={{ fontSize: '0.75rem', fontWeight: 700, lineHeight: 1 }}>MPU5 REAL</Box>
+            <Box sx={{ fontSize: '0.75rem', fontWeight: 700, lineHeight: 1 }}>MPU5 LoRa Mod</Box>
             <Box
               sx={{
                 fontSize: '0.65rem',
