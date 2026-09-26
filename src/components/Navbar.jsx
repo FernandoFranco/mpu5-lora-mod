@@ -61,14 +61,14 @@ export default function Navbar({ onToggleTheme, isDark }) {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            gap: 1,
+            gap: 1.5,
             fontSize: '18px',
             fontWeight: 700,
             flex: 1,
           }}
         >
-          <Box sx={{ color: theme.palette.primary.main, display: 'flex' }}>
-            <LoRaIcon />
+          <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
+            <LoRaIcon size="md" />
           </Box>
           <Box>
             <Box sx={{ fontSize: '0.75rem', fontWeight: 700, lineHeight: 1 }}>MPU5 REAL</Box>
@@ -136,7 +136,7 @@ export default function Navbar({ onToggleTheme, isDark }) {
               '&:hover': { color: theme.palette.primary.main },
             }}
           >
-            <GitHubIconCustom />
+            <GitHubIconCustom size="md" />
           </IconButton>
         </Link>
 
@@ -149,13 +149,13 @@ export default function Navbar({ onToggleTheme, isDark }) {
             display: 'flex',
           }}
         >
-          {isDark ? <SunIcon /> : <MoonIcon />}
+          {isDark ? <SunIcon size="md" /> : <MoonIcon size="md" />}
         </IconButton>
 
         <Button
           variant="outlined"
           size="small"
-          startIcon={<HeartIcon />}
+          startIcon={<HeartIcon size="sm" />}
           sx={{
             textTransform: 'none',
             borderColor: theme.palette.primary.main,
@@ -172,7 +172,7 @@ export default function Navbar({ onToggleTheme, isDark }) {
 
         {isMobile && (
           <IconButton onClick={() => setDrawerOpen(true)} color="inherit" sx={{ display: 'flex' }}>
-            <MenuIcon />
+            <MenuIcon size="md" />
           </IconButton>
         )}
       </Toolbar>
@@ -187,7 +187,7 @@ export default function Navbar({ onToggleTheme, isDark }) {
           }}
         >
           <IconButton onClick={() => setDrawerOpen(false)} sx={{ display: 'flex' }}>
-            <CloseIcon />
+            <CloseIcon size="md" />
           </IconButton>
           <List>
             {navLinks.map(link => (

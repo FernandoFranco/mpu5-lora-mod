@@ -32,12 +32,12 @@ export default function ContributionCard({
         <Box
           sx={{
             color: theme.palette.primary.main,
-            mb: 2,
+            mb: 3,
             display: 'flex',
             justifyContent: 'center',
           }}
         >
-          <IconComponent />
+          <IconComponent size="xl" />
         </Box>
         <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
           {title}
@@ -51,9 +51,15 @@ export default function ContributionCard({
             {items.map((item, idx) => (
               <ListItem key={idx} disablePadding sx={{ alignItems: 'flex-start' }}>
                 <ListItemIcon
-                  sx={{ minWidth: 32, mt: 0.5, color: theme.palette.primary.main, display: 'flex' }}
+                  sx={{
+                    minWidth: 32,
+                    mt: 0.25,
+                    color: theme.palette.primary.main,
+                    display: 'flex',
+                    lineHeight: 0,
+                  }}
                 >
-                  <CheckIcon />
+                  <CheckIcon size="md" />
                 </ListItemIcon>
                 <ListItemText primary={item} primaryTypographyProps={{ variant: 'body2' }} />
               </ListItem>

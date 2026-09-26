@@ -1,10 +1,13 @@
-export default function MeshtasticIcon() {
+import { useIconSize } from '../hooks/useIconSize'
+
+export default function MeshtasticIcon({ size = 'md', width, height }) {
+  const { width: w, height: h } = useIconSize(size, width, height)
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="2.25 7.667 19.5 8.667"
-      width="24"
-      height="24"
+      width={w}
+      height={h}
       color="currentColor"
       fill="none"
       stroke="currentColor"

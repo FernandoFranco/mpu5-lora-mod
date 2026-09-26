@@ -71,17 +71,15 @@ export default function HeroSection() {
                 sx={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: 1,
+                  gap: 1.5,
                   border: `2px solid ${theme.palette.primary.main}`,
                   borderRadius: 1,
-                  px: 2,
-                  py: 1,
+                  px: 2.5,
+                  py: 1.2,
                 }}
               >
-                <Box
-                  sx={{ color: theme.palette.primary.main, display: 'flex', width: 16, height: 16 }}
-                >
-                  <BadgeIcon />
+                <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
+                  <BadgeIcon size="md" />
                 </Box>
                 <Typography
                   variant="caption"
@@ -115,13 +113,13 @@ export default function HeroSection() {
               via Meshtastic.
             </Typography>
 
-            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, mb: 6 }}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2.5, mb: 6 }}>
               {badges.map((badge, idx) => {
                 const IconComponent = badge.icon
                 return (
-                  <Box key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                    <Box sx={{ color: theme.palette.primary.main, display: 'flex' }}>
-                      <IconComponent />
+                  <Box key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
+                      <IconComponent size="lg" />
                     </Box>
                     <Typography variant="body2">{badge.label}</Typography>
                   </Box>
@@ -134,7 +132,7 @@ export default function HeroSection() {
                 variant="contained"
                 color="primary"
                 href="#stl"
-                startIcon={<DownloadIcon />}
+                startIcon={<DownloadIcon size="md" />}
                 sx={{ fontWeight: 600, textTransform: 'none', fontSize: '0.95rem' }}
               >
                 Ver arquivos STL

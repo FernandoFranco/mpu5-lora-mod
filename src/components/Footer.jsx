@@ -25,9 +25,9 @@ export default function Footer() {
           }}
         >
           <Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-              <Box sx={{ color: theme.palette.primary.main, display: 'flex' }}>
-                <LoRaIcon />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+              <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
+                <LoRaIcon size="md" />
               </Box>
               <Box>
                 <Box sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1 }}>MPU5 REAL</Box>
@@ -55,14 +55,17 @@ export default function Footer() {
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 0.5,
+                  gap: 0.75,
                   color: theme.palette.text.secondary,
                   textDecoration: 'none',
                   fontSize: '0.9rem',
                   '&:hover': { color: theme.palette.primary.main },
                 }}
               >
-                <GitHubIconCustom /> GitHub
+                <Box sx={{ display: 'flex', lineHeight: 0 }}>
+                  <GitHubIconCustom size="md" />
+                </Box>
+                GitHub
               </Link>
               <Link
                 href="https://discord.gg"

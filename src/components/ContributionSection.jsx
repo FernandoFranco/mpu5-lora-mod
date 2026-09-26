@@ -10,9 +10,9 @@ export default function ContributionSection() {
   return (
     <Box id="contribute" sx={{ py: 12, backgroundColor: theme.palette.background.default }}>
       <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-          <Box sx={{ color: theme.palette.primary.main, display: 'flex' }}>
-            <HandshakeIcon />
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5, mb: 3 }}>
+          <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
+            <HandshakeIcon size="xl" />
           </Box>
           <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
             Como contribuir?

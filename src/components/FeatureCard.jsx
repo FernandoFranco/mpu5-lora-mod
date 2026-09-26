@@ -11,8 +11,15 @@ export default function FeatureCard({ icon: IconComponent, title, description })
       }}
     >
       <CardContent>
-        <Box sx={{ color: theme.palette.primary.main, mb: 2, display: 'flex' }}>
-          <IconComponent />
+        <Box
+          sx={{
+            color: theme.palette.primary.main,
+            mb: 3,
+            display: 'flex',
+            justifyContent: 'flex-start',
+          }}
+        >
+          <IconComponent size="xl" />
         </Box>
         <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
           {title}
