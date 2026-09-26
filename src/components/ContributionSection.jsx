@@ -18,8 +18,12 @@ export default function ContributionSection() {
             Como contribuir?
           </Typography>
         </Box>
-        <Typography variant="body1" sx={{ mb: 8, color: theme.palette.text.secondary, maxWidth: 600 }}>
-          Este projeto é mantido por pessoas como você. Sua contribuição ajuda a manter o projeto vivo, com melhorias, novos recursos e suporte para todos.
+        <Typography
+          variant="body1"
+          sx={{ mb: 8, color: theme.palette.text.secondary, maxWidth: 600 }}
+        >
+          Este projeto é mantido por pessoas como você. Sua contribuição ajuda a manter o projeto
+          vivo, com melhorias, novos recursos e suporte para todos.
         </Typography>
 
         <Grid container spacing={3}>

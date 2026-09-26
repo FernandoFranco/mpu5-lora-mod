@@ -5,8 +5,16 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload'
 
 const steps = [
   { id: 'cortes', title: 'Cortes', content: 'Como preparar as peças para impressão e cortes' },
-  { id: 'montagem', title: 'Montagem', content: 'Ordem correta para montar todas as peças do projeto.' },
-  { id: 'config', title: 'Configuração', content: 'Instalação do Healtec v4, Meshtastic e testes de funcionamento.' },
+  {
+    id: 'montagem',
+    title: 'Montagem',
+    content: 'Ordem correta para montar todas as peças do projeto.',
+  },
+  {
+    id: 'config',
+    title: 'Configuração',
+    content: 'Instalação do Healtec v4, Meshtastic e testes de funcionamento.',
+  },
 ]
 
 export default function InstructionsSection() {
@@ -17,8 +25,12 @@ export default function InstructionsSection() {
         <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2 }}>
           Instruções de Montagem
         </Typography>
-        <Typography variant="body1" sx={{ mb: 6, color: theme.palette.text.secondary, maxWidth: 600 }}>
-          Passo a passo completo com imagens, cortes, medidas e dicas para facilitar sua montagem. As instruções são divididas em:
+        <Typography
+          variant="body1"
+          sx={{ mb: 6, color: theme.palette.text.secondary, maxWidth: 600 }}
+        >
+          Passo a passo completo com imagens, cortes, medidas e dicas para facilitar sua montagem.
+          As instruções são divididas em:
         </Typography>
 
         <Box sx={{ mb: 8 }}>

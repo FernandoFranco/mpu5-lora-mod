@@ -12,7 +12,7 @@ export default function MeshtasticIcon() {
       stroke-linecap="round"
       stroke-linejoin="round"
     >
-      <path d="m2.25 16.334l6.5-8.667m13 8.667l-6.5-8.667l-6.5 8.667"/>
+      <path d="m2.25 16.334l6.5-8.667m13 8.667l-6.5-8.667l-6.5 8.667" />
     </svg>
-  );
+  )
 }

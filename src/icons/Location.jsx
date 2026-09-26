@@ -24,5 +24,5 @@ export default function LocationIcon() {
         stroke-linejoin="round"
       ></path>
     </svg>
-  );
+  )
 }

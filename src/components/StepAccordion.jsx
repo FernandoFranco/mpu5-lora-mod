@@ -20,15 +20,25 @@ export default function StepAccordion({ steps }) {
               fontWeight: 'bold',
               fontSize: '1.5rem',
               mx: 'auto',
-              mb: 2
+              mb: 2,
             }}
           >
             {idx + 1}
           </Box>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>{step.title}</Typography>
-          <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>{step.content}</Typography>
+          <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
+            {step.title}
+          </Typography>
+          <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
+            {step.content}
+          </Typography>
           {step.images?.map((img, i) => (
-            <Box key={i} component="img" src={img} alt={`Passo ${idx + 1}`} sx={{ width: '100%', borderRadius: 1, mt: 2, maxHeight: 200, objectFit: 'cover' }} />
+            <Box
+              key={i}
+              component="img"
+              src={img}
+              alt={`Passo ${idx + 1}`}
+              sx={{ width: '100%', borderRadius: 1, mt: 2, maxHeight: 200, objectFit: 'cover' }}
+            />
           ))}
         </Box>
       ))}

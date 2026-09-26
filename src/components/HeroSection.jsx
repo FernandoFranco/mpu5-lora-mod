@@ -16,10 +16,24 @@ export default function HeroSection() {
   const theme = useTheme()
 
   return (
-    <Box id="hero" sx={{ py: 12, backgroundColor: theme.palette.background.default, position: 'relative', overflow: 'hidden' }}>
+    <Box
+      id="hero"
+      sx={{
+        py: 12,
+        backgroundColor: theme.palette.background.default,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
       {/* Animated mesh background SVG */}
       <Box sx={{ position: 'absolute', inset: 0, opacity: 0.15 }}>
-        <svg width="100%" height="100%" viewBox="0 0 1200 600" fill="none" style={{ position: 'absolute' }}>
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 1200 600"
+          fill="none"
+          style={{ position: 'absolute' }}
+        >
           <defs>
             <style>{`
               @keyframes flow { to { stroke-dashoffset: -40; } }
@@ -51,22 +65,56 @@ export default function HeroSection() {
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6}>
             <Box sx={{ mb: 3 }}>
-              <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, border: `2px solid ${theme.palette.primary.main}`, borderRadius: 1, px: 2, py: 1 }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: theme.palette.primary.main }}>▼</span>
-                <Typography variant="caption" sx={{ fontWeight: 'bold', color: theme.palette.primary.main }}>PROJETO OPEN SOURCE</Typography>
+              <Box
+                sx={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  border: `2px solid ${theme.palette.primary.main}`,
+                  borderRadius: 1,
+                  px: 2,
+                  py: 1,
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 'bold',
+                    color: theme.palette.primary.main,
+                  }}
+                >
+                  ▼
+                </span>
+                <Typography
+                  variant="caption"
+                  sx={{ fontWeight: 'bold', color: theme.palette.primary.main }}
+                >
+                  PROJETO OPEN SOURCE
+                </Typography>
               </Box>
             </Box>
 
-            <Typography variant="h2" sx={{ fontWeight: 'bold', mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+            <Typography
+              variant="h2"
+              sx={{ fontWeight: 'bold', mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}
+            >
               MPU5 <span style={{ color: '#FF8C00' }}>Real</span>
             </Typography>
 
-            <Typography variant="h6" sx={{ color: theme.palette.text.secondary, mb: 4, fontSize: '1rem', fontWeight: 400 }}>
+            <Typography
+              variant="h6"
+              sx={{ color: theme.palette.text.secondary, mb: 4, fontSize: '1rem', fontWeight: 400 }}
+            >
               Transforme seu MPU5 Fake em um dispositivo de comunicação real para Airsoft.
             </Typography>
 
-            <Typography variant="body2" sx={{ color: theme.palette.text.secondary, mb: 4, lineHeight: 1.6 }}>
-              Este projeto oferece os arquivos de impressão 3D e o passo a passo para converter uma MPU5 Fake em um dispositivo funcional, utilizando o Healtec V4 e a comunicação LoRa via Meshtastic.
+            <Typography
+              variant="body2"
+              sx={{ color: theme.palette.text.secondary, mb: 4, lineHeight: 1.6 }}
+            >
+              Este projeto oferece os arquivos de impressão 3D e o passo a passo para converter uma
+              MPU5 Fake em um dispositivo funcional, utilizando o Healtec V4 e a comunicação LoRa
+              via Meshtastic.
             </Typography>
 
             <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, mb: 6 }}>
