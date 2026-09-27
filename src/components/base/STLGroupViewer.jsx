@@ -1,17 +1,15 @@
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import { useState, useEffect } from 'react'
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
-import { BufferGeometry, Mesh, MeshPhongMaterial } from 'three'
-import { Box, CircularProgress, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { useTheme } from '@mui/material'
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
 
 const stlCache = new Map()
 
 function STLPart({ file, highlightPartId, partId }) {
   const [geometry, setGeometry] = useState(null)
   const [error, setError] = useState(false)
-  const theme = useTheme()
 
   useEffect(() => {
     if (!file) return

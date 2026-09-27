@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import { lightTheme, darkTheme } from './theme/theme'
+import { ThemeProvider } from '@mui/material/styles'
 import Home from './pages/Home'
+import { lightTheme, darkTheme } from './theme/theme'
 
 export default function App() {
   const [isDark, setIsDark] = useState(() => {

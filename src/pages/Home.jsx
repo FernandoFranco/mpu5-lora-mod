@@ -1,13 +1,13 @@
 import { Box } from '@mui/material'
-import Navbar from '../components/Navbar'
-import HeroSection from '../components/HeroSection'
 import { AboutSection } from '../components/AboutSection'
-import { HowItWorksSection } from '../components/HowItWorksSection'
-import { FilesSection } from '../components/FilesSection'
 import { AssemblySection } from '../components/AssemblySection'
-import { SupportSection } from '../components/SupportSection'
 import { FAQSection } from '../components/FAQSection'
+import { FilesSection } from '../components/FilesSection'
 import Footer from '../components/Footer'
+import HeroSection from '../components/HeroSection'
+import { HowItWorksSection } from '../components/HowItWorksSection'
+import Navbar from '../components/Navbar'
+import { SupportSection } from '../components/SupportSection'
 
 export default function Home({ onToggleTheme, isDark }) {
   return (

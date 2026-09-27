@@ -1,17 +1,16 @@
-import { Box, Button, ButtonGroup, Grid, Typography } from '@mui/material'
 import { useState } from 'react'
+import { Box, Button, ButtonGroup, Grid, Typography } from '@mui/material'
+import { stlGroups } from '../data/stlGroups'
+import { PartsList } from './base/PartsList'
 import { SectionContainer } from './base/SectionContainer'
 import { SectionTitle } from './base/SectionTitle'
 // import { STLGroupViewer } from './base/STLGroupViewer'
-import { PartsList } from './base/PartsList'
-import { stlGroups } from '../data/stlGroups'
 
 export function FilesSection() {
   const [selectedGroupId, setSelectedGroupId] = useState('heltec-v4')
   const [selectedPartId, setSelectedPartId] = useState(null)
 
   const selectedGroup = stlGroups.find(g => g.id === selectedGroupId)
-  const selectedPart = selectedGroup?.parts?.find(p => p.id === selectedPartId)
 
   // Se nenhuma parte selecionada, selecionar a primeira
   const partToHighlight = selectedPartId || selectedGroup?.parts?.[0]?.id

@@ -1,14 +1,14 @@
-import { FeatureGrid } from './base/FeatureGrid'
+import { Typography } from '@mui/material'
 import Lock from '../icons/Lock'
 import MapPin from '../icons/MapPin'
 import MeshChat from '../icons/MeshChat'
 import RadioDevice from '../icons/RadioDevice'
 import Remix from '../icons/Remix'
+import WifiOff from '../icons/WifiOff'
+import { FeatureGrid } from './base/FeatureGrid'
 import { SectionContainer } from './base/SectionContainer'
 import { SectionTitle } from './base/SectionTitle'
 import { TwoColumnSection } from './base/TwoColumnSection'
-import { Typography } from '@mui/material'
-import WifiOff from '../icons/WifiOff'
 
 export function AboutSection() {
   const features = [

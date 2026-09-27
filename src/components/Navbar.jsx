@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   AppBar,
   Box,
@@ -16,12 +17,11 @@ import {
 
 import CloseIcon from '../icons/Close'
 import GitHubIconCustom from '../icons/GitHub'
+import HeartIcon from '../icons/Heart'
 import LoRaIcon from '../icons/LoRa'
 import MenuIcon from '../icons/Menu'
-import SunIcon from '../icons/Sun'
 import MoonIcon from '../icons/Moon'
-import HeartIcon from '../icons/Heart'
-import { useState } from 'react'
+import SunIcon from '../icons/Sun'
 
 const navLinks = [
   { label: 'Sobre', href: '#sobre' },

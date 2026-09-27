@@ -1,9 +1,6 @@
 import { Box, Typography } from '@mui/material'
-import { useTheme } from '@mui/material'
 
 export function SectionTitle({ label, title, description = '', maxWidth = '100%' }) {
-  const theme = useTheme()
-
   return (
     <Box sx={{ mb: 6, maxWidth }}>
       {label && (
