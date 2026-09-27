@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Specs (local documentation, não versionado)
+specs/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
