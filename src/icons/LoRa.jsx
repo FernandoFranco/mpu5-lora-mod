@@ -3,14 +3,20 @@ import { useIconSize } from '../hooks/useIconSize'
 export default function LoRaIcon({ size = 'md', width, height }) {
   const { width: w, height: h } = useIconSize(size, width, height)
   return (
-    <svg width={w} height={h} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M16 2V8M16 24V30M8 16H2M30 16H24M6.34 6.34L10.58 10.58M21.42 21.42L25.66 25.66M25.66 6.34L21.42 10.58M10.58 21.42L6.34 25.66"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <circle cx="16" cy="16" r="4" fill="currentColor" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={w}
+      height={h}
+      color="currentColor"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    >
+      <path d="M4 18.001C2.74418 16.3295 2 14.2516 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 14.2516 21.2558 16.3295 20 18.001"></path>
+      <path d="M7.52779 16C6.57771 14.9385 6 13.5367 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 13.5367 17.4223 14.9385 16.4722 16"></path>
+      <path d="M12 12V22M9 22H15"></path>
     </svg>
   )
 }
