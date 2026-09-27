@@ -15,6 +15,9 @@ dist-ssr
 # Specs (local documentation, não versionado)
 specs/
 
+# Temporary files (STLs, gcode, assets locais)
+.tmp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
