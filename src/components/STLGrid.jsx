@@ -19,7 +19,7 @@ const stlFiles = [
   },
   {
     id: 'support-heltec',
-    name: 'Suporte Healtec v4',
+    name: 'Suporte Healtec',
     image: '/images/stl/support-heltec.jpg',
     downloadUrl: '/stl/support-heltec.stl',
   },

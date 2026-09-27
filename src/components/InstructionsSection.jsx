@@ -13,7 +13,7 @@ const steps = [
   {
     id: 'config',
     title: 'Configuração',
-    content: 'Instalação do Healtec v4, Meshtastic e testes de funcionamento.',
+    content: 'Instalação do Healtec, Meshtastic e testes de funcionamento.',
   },
 ]
 

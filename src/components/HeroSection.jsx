@@ -107,8 +107,8 @@ export default function HeroSection() {
               }}
             >
               Arquivos 3D e guia completo para transformar a MPU5 fake em um rádio mesh funcional
-              para airsoft — com Heltec V4, LoRa e Meshtastic. Mensagens, posição do time e
-              comunicação sem internet e sem mensalidade.
+              para airsoft — com Heltec, LoRa e Meshtastic. Mensagens, posição do time e comunicação
+              sem internet e sem mensalidade.
             </Typography>
 
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 3 }}>
@@ -460,7 +460,7 @@ export default function HeroSection() {
         <Container maxWidth="lg" sx={{ py: 4.5 }}>
           <Box sx={{ display: 'flex', gap: 4, width: '100%' }}>
             {[
-              { icon: ChipIcon, label: 'Heltec V4', desc: 'ESP32-S3 + LoRa SX1262' },
+              { icon: ChipIcon, label: 'Heltec', desc: 'ESP32-S3 + LoRa SX1262' },
               { icon: LoRaIcon, label: 'LoRa 915 MHz', desc: 'Faixa ISM usada no Brasil' },
               {
                 icon: MeshtasticIcon,
