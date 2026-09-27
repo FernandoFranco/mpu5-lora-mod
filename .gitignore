@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 # Specs (local documentation, não versionado)
-specs/
+docs/superpowers/
 
 # Temporary files (STLs, gcode, assets locais)
 .tmp/
