@@ -1,23 +1,6 @@
 import { Box, Button, Typography, Stack } from '@mui/material'
 import { useTheme } from '@mui/material'
-// ChevronRight icon será criado em Task 2
-// import { ChevronRight } from '../icons/ChevronRight';
-
-// Placeholder para ChevronRight enquanto não é criado
-function ChevronRightPlaceholder() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-    >
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  )
-}
+import ChevronRight from '../../icons/ChevronRight'
 
 export function PartsList({ parts, selectedId, onSelect }) {
   const theme = useTheme()
@@ -77,7 +60,7 @@ export function PartsList({ parts, selectedId, onSelect }) {
                   {part.file}
                 </Typography>
               </Box>
-              <ChevronRightPlaceholder />
+              <ChevronRight size="sm" />
             </Button>
           ))}
         </Stack>

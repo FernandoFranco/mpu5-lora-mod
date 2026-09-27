@@ -11,9 +11,9 @@ export default function MenuIcon({ size = 'md', width, height }) {
       color="currentColor"
       fill="none"
       stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path d="M10 5L20 5"></path>
       <path d="M4 12L20 12"></path>

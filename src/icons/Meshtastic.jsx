@@ -11,9 +11,9 @@ export default function MeshtasticIcon({ size = 'md', width, height }) {
       color="currentColor"
       fill="none"
       stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path d="m2.25 16.334l6.5-8.667m13 8.667l-6.5-8.667l-6.5 8.667" />
     </svg>

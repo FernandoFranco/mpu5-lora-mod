@@ -24,17 +24,25 @@ import HeartIcon from '../icons/Heart'
 import { useState } from 'react'
 
 const navLinks = [
-  { label: 'Início', href: '#hero' },
-  { label: 'Sobre', href: '#about' },
-  { label: 'Arquivos STL', href: '#stl' },
-  { label: 'Instruções', href: '#assembly' },
-  { label: 'Contribuir', href: '#contribute' },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'Como Funciona', href: '#como-funciona' },
+  { label: 'Arquivos', href: '#arquivos' },
+  { label: 'Montagem', href: '#montagem' },
+  { label: 'Apoie', href: '#apoie' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 export default function Navbar({ onToggleTheme, isDark }) {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+
+  const handleNavigate = href => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <AppBar
@@ -98,13 +106,14 @@ export default function Navbar({ onToggleTheme, isDark }) {
             {navLinks.map(link => (
               <Button
                 key={link.label}
-                href={link.href}
+                onClick={() => handleNavigate(link.href)}
                 color="inherit"
                 sx={{
                   textDecoration: 'none',
                   textTransform: 'none',
                   color: theme.palette.text.primary,
                   position: 'relative',
+                  cursor: 'pointer',
                   '&:hover': { color: theme.palette.primary.main },
                   '&:hover::after': {
                     content: '""',
@@ -192,7 +201,12 @@ export default function Navbar({ onToggleTheme, isDark }) {
           <List>
             {navLinks.map(link => (
               <ListItem key={link.label} disablePadding>
-                <ListItemButton href={link.href} onClick={() => setDrawerOpen(false)}>
+                <ListItemButton
+                  onClick={() => {
+                    handleNavigate(link.href)
+                    setDrawerOpen(false)
+                  }}
+                >
                   <ListItemText primary={link.label} />
                 </ListItemButton>
               </ListItem>

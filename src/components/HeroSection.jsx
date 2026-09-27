@@ -115,7 +115,12 @@ export default function HeroSection() {
               <Button
                 variant="contained"
                 color="primary"
-                href="#stl"
+                onClick={() => {
+                  const element = document.querySelector('#arquivos')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
                 startIcon={<DownloadIcon size="md" />}
                 sx={{
                   fontWeight: 600,
@@ -125,6 +130,7 @@ export default function HeroSection() {
                   borderRadius: '10px',
                   backgroundColor: theme.palette.primary.main,
                   color: isDark ? '#140A02' : '#FFFFFF',
+                  cursor: 'pointer',
                   '&:hover': {
                     backgroundColor: isDark ? '#FF9750' : '#E67E22',
                   },
@@ -135,7 +141,12 @@ export default function HeroSection() {
               <Button
                 variant="outlined"
                 color="primary"
-                href="#assembly"
+                onClick={() => {
+                  const element = document.querySelector('#apoie')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
                 sx={{
                   fontWeight: 600,
                   textTransform: 'none',
@@ -144,6 +155,7 @@ export default function HeroSection() {
                   borderRadius: '10px',
                   borderColor: theme.palette.primary.main,
                   color: theme.palette.text.primary,
+                  cursor: 'pointer',
                   '&:hover': {
                     backgroundColor: isDark
                       ? 'rgba(255, 138, 51, 0.1)'
@@ -151,7 +163,7 @@ export default function HeroSection() {
                   },
                 }}
               >
-                Ver guia de montagem
+                Como Contribuir
               </Button>
             </Box>
 

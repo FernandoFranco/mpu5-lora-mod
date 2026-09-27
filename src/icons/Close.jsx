@@ -11,9 +11,9 @@ export default function CloseIcon({ size = 'md', width, height }) {
       color="currentColor"
       fill="none"
       stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085"></path>
     </svg>

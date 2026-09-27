@@ -1,71 +1,71 @@
-import { Box, Container, Typography, Grid } from '@mui/material'
-import { useTheme } from '@mui/material/styles'
-import FeatureCard from './FeatureCard'
-import LocationIcon from '../icons/Location'
-import ChatIcon from '../icons/Chat'
-import NetworkIcon from '../icons/Network'
-import BatteryIcon from '../icons/Battery'
+import { FeatureGrid } from './base/FeatureGrid'
+import Lock from '../icons/Lock'
+import MapPin from '../icons/MapPin'
+import MeshChat from '../icons/MeshChat'
+import RadioDevice from '../icons/RadioDevice'
+import Remix from '../icons/Remix'
+import { SectionContainer } from './base/SectionContainer'
+import { SectionTitle } from './base/SectionTitle'
+import { TwoColumnSection } from './base/TwoColumnSection'
+import { Typography } from '@mui/material'
+import WifiOff from '../icons/WifiOff'
 
-const features = [
-  {
-    icon: LocationIcon,
-    title: 'Localização de equipe',
-    description: 'Rastreie a posição do seu time em tempo real sem GPS.',
-  },
-  {
-    icon: ChatIcon,
-    title: 'Mensagens de texto',
-    description: 'Comunique-se offline com mensagens de texto.',
-  },
-  {
-    icon: NetworkIcon,
-    title: 'Rede mesh offline',
-    description: 'Funciona com comunicação mesh offline.',
-  },
-  {
-    icon: BatteryIcon,
-    title: 'Funciona com baterias comuns',
-    description: 'Use baterias padrão, sem dependência de marca.',
-  },
-]
+export function AboutSection() {
+  const features = [
+    {
+      icon: MeshChat,
+      title: 'Mesh Chat',
+      description: 'Comunicação direta entre dispositivos sem dependência de servidor central.',
+    },
+    {
+      icon: MapPin,
+      title: 'Posicionamento Local',
+      description: 'Funciona offline sem necessidade de localização GPS ou internet.',
+    },
+    {
+      icon: WifiOff,
+      title: 'Zero Infraestrutura',
+      description: 'Sem custos de rede, sem dependência de servidores ou subscriptions.',
+    },
+    {
+      icon: Lock,
+      title: 'Canais Criptografados',
+      description: 'Comunicação segura com criptografia end-to-end em todos os canais.',
+    },
+    {
+      icon: RadioDevice,
+      title: 'Visual Preservado',
+      description: 'Design simples que preserva a estética clássica do MPU5.',
+    },
+    {
+      icon: Remix,
+      title: 'Aberto e Remixável',
+      description: 'Código aberto permitindo customizações e contribuições da comunidade.',
+    },
+  ]
 
-export default function AboutSection() {
-  const theme = useTheme()
+  const leftContent = (
+    <Typography sx={{ fontSize: '17px', lineHeight: 1.7, color: 'text.secondary' }}>
+      O projeto MPU5 LoRa Airsoft é uma iniciativa open-source que traz comunicação mesh
+      descentralizada para o airsoft. Com tecnologia LoRa, permite que jogadores se comuniquem sem
+      infraestrutura, preservando a filosofia DIY do hobby.
+    </Typography>
+  )
+
   return (
-    <Box id="about" sx={{ py: 12, backgroundColor: theme.palette.background.default }}>
-      <Container maxWidth="lg">
-        <Typography variant="h3" sx={{ fontWeight: 'bold', textAlign: 'center', mb: 2 }}>
-          O que é o MPU5 LoRa Mod?
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: 'center',
-            mb: 8,
-            color: theme.palette.text.secondary,
-            maxWidth: 600,
-            mx: 'auto',
-          }}
-        >
-          Um projeto open source que transforma sua réplica MPU5 fake em um dispositivo funcional de
-          comunicação para airsoft, usando Meshtastic e LoRa.
-        </Typography>
-
-        <Grid container spacing={3} sx={{ mb: 6 }}>
-          {features.map(feature => (
-            <Grid item xs={12} sm={6} md={3} key={feature.title}>
-              <FeatureCard {...feature} />
-            </Grid>
-          ))}
-        </Grid>
-
-        <Box
-          component="img"
-          src="/images/about.jpg"
-          alt="MPU5"
-          sx={{ width: '100%', borderRadius: 2, maxHeight: 400, objectFit: 'cover' }}
-        />
-      </Container>
-    </Box>
+    <SectionContainer id="sobre">
+      <SectionTitle
+        label="SOBRE"
+        title="Comunicação Descentralizada"
+        description="Entenda os princípios que guiam o projeto MPU5"
+      />
+      <TwoColumnSection
+        left={leftContent}
+        right={<FeatureGrid features={features} columns={3} />}
+        leftSpan={4}
+        rightSpan={7}
+        gap={3}
+      />
+    </SectionContainer>
   )
 }
