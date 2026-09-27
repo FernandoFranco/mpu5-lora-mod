@@ -1,7 +1,14 @@
 import { useIconSize } from '../hooks/useIconSize'
 
-export default function MeshtasticIcon({ size = 'md', width, height, color = 'currentColor' }) {
+export default function StarIcon({
+  size = 'md',
+  width,
+  height,
+  color = 'currentColor',
+  filled = false,
+}) {
   const { width: w, height: h } = useIconSize(size, width, height)
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,13 +16,13 @@ export default function MeshtasticIcon({ size = 'md', width, height, color = 'cu
       width={w}
       height={h}
       color={color}
-      fill="none"
-      stroke={color}
-      strokeWidth="1.5"
+      fill={filled ? color : 'none'}
+      stroke={filled ? 'none' : color}
+      strokeWidth={filled ? '0' : '2'}
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M4 18L10 10M20 18L14 10L8 18" />
+      <path d="M12 2l3 8h8l-6.5 5 2.5 8L12 16l-6.5 5 2.5-8L1 10h8z" />
     </svg>
   )
 }

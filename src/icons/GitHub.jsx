@@ -1,6 +1,6 @@
 import { useIconSize } from '../hooks/useIconSize'
 
-export default function GitHubIconCustom({ size = 'md', width, height }) {
+export default function GitHubIconCustom({ size = 'md', width, height, color = 'currentColor' }) {
   const { width: w, height: h } = useIconSize(size, width, height)
   return (
     <svg
@@ -8,9 +8,9 @@ export default function GitHubIconCustom({ size = 'md', width, height }) {
       viewBox="0 0 24 24"
       width={w}
       height={h}
-      color="currentColor"
+      color={color}
       fill="none"
-      stroke="currentColor"
+      stroke={color}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"

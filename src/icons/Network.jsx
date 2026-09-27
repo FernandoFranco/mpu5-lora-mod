@@ -1,6 +1,6 @@
 import { useIconSize } from '../hooks/useIconSize'
 
-export default function NetworkIcon({ size = 'md', width, height }) {
+export default function NetworkIcon({ size = 'md', width, height, color = 'currentColor' }) {
   const { width: w, height: h } = useIconSize(size, width, height)
   return (
     <svg
@@ -8,9 +8,9 @@ export default function NetworkIcon({ size = 'md', width, height }) {
       viewBox="0 0 24 24"
       width={w}
       height={h}
-      color="currentColor"
+      color={color}
       fill="none"
-      stroke="currentColor"
+      stroke={color}
       strokeWidth="1.5"
     >
       <path d="M20.5 5.5C20.5 7.15685 19.1569 8.5 17.5 8.5C15.8431 8.5 14.5 7.15685 14.5 5.5C14.5 3.84315 15.8431 2.5 17.5 2.5C19.1569 2.5 20.5 3.84315 20.5 5.5Z"></path>
