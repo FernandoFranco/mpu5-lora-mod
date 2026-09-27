@@ -1,87 +1,88 @@
 # CLAUDE.md
 
-Este arquivo fornece orientação para Claude Code (claude.ai/code) ao trabalhar com código neste repositório.
+This file provides guidance for Claude Code (claude.ai/code) when working with code in this repository.
 
-## Visão Geral do Projeto
+## Project Overview
 
-MPU5 LoRa Mod é uma aplicação web React + Vite com componentes Material-UI e visualização 3D com Three.js. O projeto apresenta uma modificação de dispositivo LoRa com recursos incluindo visualização de arquivos STL em 3D, alternância de tema (claro/escuro) e design responsivo.
+MPU5 LoRa Mod is a React + Vite web application that serves as documentation and landing page for an open-source hardware project: transforming an MPU5 replica (airsoft milsim accessory) into a functional mesh radio using a LoRa board supported by [Meshtastic](https://meshtastic.org/) firmware. The site features 3D STL file visualization, complete assembly guide, dark/light theme switching, and responsive design.
 
-## Comandos Comuns
+## Common Commands
 
-Todos os comandos usam **Yarn** (v4.18.1), nunca npm.
+All commands use **Yarn** (v4.18.1), never npm.
 
 ```bash
-# Desenvolvimento
-yarn dev          # Inicia servidor dev Vite (http://localhost:5173/)
+# Development
+yarn dev          # Start Vite dev server (http://localhost:5173/)
 
 # Build
-yarn build        # Build para produção (saída em ./dist/)
-yarn preview      # Prévia do build de produção localmente
+yarn build        # Build for production (output in ./dist/)
+yarn preview      # Preview production build locally
 
-# Qualidade de Código
-yarn lint         # Executa oxlint (linter baseado em AST)
-yarn format       # Formata código com Prettier
-yarn format:check # Verifica formatação sem fazer alterações
+# Code Quality
+yarn lint         # Run oxlint (AST-based linter)
+yarn format       # Format code with Prettier
+yarn format:check # Check formatting without changes
 ```
 
-## Arquitetura do Projeto
+## Project Architecture
 
-### Estrutura de Diretórios
+### Directory Structure
 
 ```
 src/
-  ├── pages/              # Componentes de página (Home.jsx)
-  ├── components/         # Componentes de features (seções, layouts)
-  │   └── base/          # Componentes base reutilizáveis (STLGroupViewer, PartsList, FeatureCard, etc.)
-  ├── icons/             # Componentes de ícones SVG customizados (todos com viewBox e props consistentes)
-  ├── theme/             # Configuração de tema do Material-UI
-  ├── hooks/             # Hooks React customizados
-  ├── assets/            # Imagens e arquivos estáticos
-  ├── App.jsx            # Componente raiz com alternância de tema
-  └── main.jsx           # Ponto de entrada
+  ├── pages/              # Page components (Home.jsx)
+  ├── components/         # Feature components (sections, layouts)
+  │   └── base/          # Reusable base components (STLGroupViewer, PartsList, FeatureCard, etc.)
+  ├── icons/             # Custom SVG icon components (all with viewBox and consistent props)
+  ├── theme/             # Material-UI theme configuration
+  ├── hooks/             # Custom React hooks (ex: useIconSize.js)
+  ├── data/              # Static data (ex: stlGroups.js — STL parts/groups)
+  ├── assets/            # Images and static files
+  ├── App.jsx            # Root component with theme switching
+  └── main.jsx           # Entry point
 ```
 
-### Componentes e Padrões Principais
+### Main Components and Patterns
 
-**Sistema de Tema**: Usa `ThemeProvider` do Material-UI com temas claro/escuro. O tema persiste em `localStorage` com a chave `'theme'`. Cores:
+**Theme System**: Uses Material-UI's `ThemeProvider` with light/dark themes. Theme persists in `localStorage` with key `'theme'`. Colors:
 
-- Primária: `#FF8A33` (laranja, consistente entre temas)
-- Modo claro: fundo claro, texto escuro
-- Modo escuro: fundo muito escuro (#0E110D), texto claro
+- Primary: `#FF8A33` (orange, consistent across themes)
+- Light mode: light background, dark text
+- Dark mode: very dark background (#0E110D), light text
 
-**Visualizador 3D**: `STLGroupViewer.jsx` renderiza modelos STL 3D usando Three.js com:
+**3D Viewer**: `STLGroupViewer.jsx` renders 3D STL models using Three.js with:
 
-- Cache de geometria para evitar recarregamento
-- Controles de órbita interativos com auto-rotação
-- Destaque de peças por ID
-- Dimensionamento responsivo do canvas
+- Geometry caching to prevent reloading
+- Interactive orbit controls with auto-rotation
+- Part highlighting by ID
+- Responsive canvas sizing
 
-**Ícones**: Todos os ícones em `/src/icons/` seguem um padrão consistente:
+**Icons**: All icons in `/src/icons/` follow a consistent pattern:
 
-- Componentes SVG com atributo `viewBox`
-- Props `width`, `height`, `fill` consistentes
+- SVG components with `viewBox` attribute
+- Consistent `width`, `height`, `fill` props
 - Named exports (ex: `export function StarIcon(props)`)
 
-**Componentes Base**: Blocos de construção de UI reutilizáveis em `/src/components/base/`:
+**Base Components**: Reusable UI building blocks in `/src/components/base/`:
 
-- `STLGroupViewer` — Componente de exibição de modelo 3D
-- `PartsList` — Listagem de peças interativa com destaque
-- `FeatureCard` — Componente de cartão para features
-- `SectionContainer`, `SectionTitle`, `FeatureGrid` — Componentes de layout
-- `TwoColumnSection`, `StepList` — Padrões de layout específicos
+- `STLGroupViewer` — 3D model display component
+- `PartsList` — Interactive parts list with highlighting
+- `FeatureCard` — Feature card component
+- `SectionContainer`, `SectionTitle`, `FeatureGrid` — Layout components
+- `TwoColumnSection`, `StepList` — Specific layout patterns
 
-### Abordagem de Estilo
+### Styling Approach
 
-- **Material-UI (MUI)**: Framework de UI principal com hook `useTheme()` para acesso ao tema
-- **CSS**: Estilos globais em `src/index.css`, estilos com escopo de componente via prop `sx` do MUI
-- **Formatação**: Prettier com `printWidth: 100`, sem ponto-e-vírgula, aspas simples
-- **Linting**: Oxlint para regras específicas de React (hooks, exports de componentes)
+- **Material-UI (MUI)**: Main UI framework with `useTheme()` hook for theme access
+- **CSS**: Global styles in `src/index.css`, component-scoped styles via MUI's `sx` prop
+- **Formatting**: Prettier with `printWidth: 100`, no semicolons, single quotes
+- **Linting**: Oxlint for React-specific rules (hooks, component exports)
 
-### Como as Páginas se Compõem
+### How Pages are Composed
 
-`Home.jsx` é uma pilha vertical de seções:
+`Home.jsx` is a vertical stack of sections:
 
-1. Navbar (com alternância de tema)
+1. Navbar (with theme switching)
 2. HeroSection
 3. AboutSection
 4. HowItWorksSection
@@ -91,26 +92,42 @@ src/
 8. FAQSection
 9. Footer
 
-Cada seção é um componente separado, tipicamente importando componentes base de `/src/components/base/`.
+Each section is a separate component, typically importing base components from `/src/components/base/`.
 
-## Build e Implantação
+## Build and Deployment
 
-- **Vite Config**: Caminho base é `/mpu5/` para implantação no GitHub Pages
-- **GitHub Pages**: Deploy automático em push para branches `main` ou `master`
-- **Nota**: Fluxo de trabalho do GitHub Actions já foi corrigido para usar Yarn
+- **Vite Config**: Base path is `/mpu5/` for GitHub Pages deployment
+- **GitHub Pages**: Automatic deployment on push to `main` or `master` branches
+- **Note**: GitHub Actions workflow already corrected to use Yarn
 
-## Padrões de Qualidade de Código
+## Code Quality Patterns
 
-- **Regras Oxlint**: Regras de hooks React e exports de componentes são aplicadas
-- **Prettier**: Largura de linha de 100 caracteres, sem ponto-e-vírgula
-- **React**: Componentes funcionais com hooks; sem componentes de classe
-- **Ordem de importações**: Sem ordem obrigatória; use agrupamento natural (React, packages, local)
+- **Oxlint Rules**: React hooks and component export rules are enforced
+- **Prettier**: Line width of 100 characters, no semicolons
+- **React**: Functional components with hooks; no class components
+- **Import Order**: No mandatory order; use natural grouping (React, packages, local)
 
-## Notas para Futuras Alterações
+## 3D Models Structure
 
-1. **Somente Yarn**: Nunca use npm. Projeto é configurado para Yarn com node-modules linker.
-2. **Atualizações de ícones**: Ao adicionar/modificar ícones, mantenha props e viewBox consistentes entre todos os ícones.
-3. **Acesso ao tema**: Use hook `useTheme()` de `@mui/material` para acessar cores do tema atual.
-4. **Uso de Three.js**: O padrão de cache do STLLoader previne recarregamento de geometria; não remova o Map `stlCache`.
-5. **Componentes de seção**: Cada seção é independente; tente mantê-las auto-contidas para manutenibilidade.
-6. **GitHub Actions**: Fluxo de deploy já utiliza Yarn (corrigido).
+STL files are located in `public/models/stl/` with the following organization:
+
+- `top/` — Upper enclosure components
+- `bottom/` — Lower enclosure components
+- `guides/` — Reference pieces and guides
+
+The `devices/` folder contains board-specific files (ex: Heltec V4) and is not part of public documentation.
+
+## License
+
+The project is licensed under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**, covering the web application code, STL files, and hardware documentation.
+
+**Important**: Commercial use is prohibited by the default license, but is permitted with prior contact and authorization from the license holder. See `LICENSE` for details.
+
+## Notes for Future Changes
+
+1. **Yarn Only**: Never use npm. Project is configured for Yarn with node-modules linker.
+2. **Icon Updates**: When adding/modifying icons, keep props and viewBox consistent across all icons.
+3. **Theme Access**: Use `useTheme()` hook from `@mui/material` to access current theme colors.
+4. **Three.js Usage**: The STLLoader caching pattern prevents geometry reloading; don't remove the `stlCache` Map.
+5. **Section Components**: Each section is independent; try to keep them self-contained for maintainability.
+6. **GitHub Actions**: Deployment workflow already uses Yarn (fixed).
