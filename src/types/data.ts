@@ -1,17 +1,17 @@
-export interface STLFile {
-  name: string
-  path: string
+export interface STLPart {
   id: string
+  name: string
+  file: string
+  mat: string
+  layer: string
+  infill: string
+  support: string
+  qty: number
 }
 
 export interface STLGroup {
-  title: string
-  files: STLFile[]
-}
-
-export interface SpecFile {
-  title: string
+  id: string
+  name: string
   description: string
-  href?: string
-  icon?: string
+  parts: STLPart[]
 }

@@ -1,4 +1,6 @@
-export const stlGroups = [
+import type { STLGroup } from '@/types'
+
+export const stlGroups: STLGroup[] = [
   {
     id: 'heltec-v4',
     name: 'Heltec V4',
