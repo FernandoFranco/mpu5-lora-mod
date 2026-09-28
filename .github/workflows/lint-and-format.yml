@@ -29,7 +29,10 @@ jobs:
       - name: Check Prettier formatting
         run: yarn format:check
 
-      - name: Check TypeScript compilation
+      - name: Check TypeScript types
+        run: yarn typecheck
+
+      - name: Check build
         run: yarn build
 
   lint-result:
