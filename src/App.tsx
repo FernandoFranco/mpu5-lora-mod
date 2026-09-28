@@ -1,10 +1,10 @@
 import { useState, useEffect, FC } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
-import Home from './pages/Home'
+import { Home } from '@/pages'
 import { lightTheme, darkTheme } from './theme/theme'
 
-const App: FC = () => {
+export const App: FC = () => {
   const [isDark, setIsDark] = useState(() => {
     const stored = localStorage.getItem('theme')
     if (stored) return stored === 'dark'
@@ -24,5 +24,3 @@ const App: FC = () => {
     </ThemeProvider>
   )
 }
-
-export default App

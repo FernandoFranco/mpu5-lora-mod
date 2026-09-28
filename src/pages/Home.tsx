@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import { Box } from '@mui/material'
 import { Footer, Navbar } from '@/components/common'
 import {
@@ -9,8 +10,9 @@ import {
   HowItWorksSection,
   SupportSection,
 } from '@/components/sections'
+import type { HomeProps } from '@/types'
 
-export default function Home({ onToggleTheme, isDark }) {
+export const Home: FC<HomeProps> = ({ onToggleTheme, isDark }) => {
   return (
     <Box>
       <Navbar onToggleTheme={onToggleTheme} isDark={isDark} />
