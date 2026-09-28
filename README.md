@@ -27,12 +27,15 @@ Each operator carries a node. The radios form a mesh network: if a teammate is o
 ### Web Application (this repository)
 
 - **React 19** — UI Framework
+- **TypeScript** — Static typing (strict mode)
 - **Vite** — Build tool and dev server
-- **Material-UI (MUI 9)** — Components and design system
+- **Material-UI (MUI 9, Grid v2)** — Components and design system
 - **Three.js** (`@react-three/fiber` + `@react-three/drei`) — 3D STL model visualization
 - **Yarn 4.18.1** — Package manager
-- **Oxlint** — Linting (React rules)
+- **ESLint 9** — Linting (TypeScript, React hooks, import order)
 - **Prettier** — Code formatting
+- **husky + lint-staged** — Pre-commit checks
+- **GitHub Actions** — CI (lint, format, typecheck, build) and Pages deployment
 
 ### Hardware
 
@@ -44,35 +47,41 @@ Each operator carries a node. The radios form a mesh network: if a teammate is o
 
 ```
 src/
-├── pages/              # Page components
-│   └── Home.jsx        # Main landing page
-├── components/         # Section components
-│   ├── Navbar.jsx
-│   ├── HeroSection.jsx
-│   ├── AboutSection.jsx
-│   ├── HowItWorksSection.jsx
-│   ├── FilesSection.jsx          # 3D preview and STL download
-│   ├── AssemblySection.jsx       # Assembly guide
-│   ├── SupportSection.jsx
-│   ├── FAQSection.jsx
-│   ├── Footer.jsx
-│   └── base/                     # Reusable base components
-│       ├── STLGroupViewer.jsx    # 3D viewer (Three.js)
-│       ├── PartsList.jsx         # Interactive parts list
-│       ├── FeatureCard.jsx       # Feature card
-│       ├── SectionContainer.jsx
-│       ├── SectionTitle.jsx
-│       ├── FeatureGrid.jsx
-│       ├── TwoColumnSection.jsx
-│       └── StepList.jsx
-├── icons/              # Custom SVG icon components
-├── theme/              # Material-UI configuration (colors, typography)
-├── hooks/              # Custom React hooks
-├── data/               # Static data (ex: stlGroups.js — STL parts/groups)
-├── assets/             # Images and static files
-├── App.jsx             # Root component (theme)
-└── main.jsx            # Entry point
+├── pages/                  # Page components
+│   └── Home.tsx            # Main landing page
+├── components/
+│   ├── sections/           # Page sections
+│   │   ├── HeroSection.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── HowItWorksSection.tsx
+│   │   ├── FilesSection.tsx        # 3D preview and STL download
+│   │   ├── AssemblySection.tsx     # Assembly guide
+│   │   ├── SupportSection.tsx
+│   │   └── FAQSection.tsx
+│   ├── common/             # App-wide chrome
+│   │   ├── Navbar.tsx
+│   │   └── Footer.tsx
+│   └── base/               # Reusable base components
+│       ├── STLGroupViewer.tsx      # 3D viewer (Three.js)
+│       ├── PartsList.tsx           # Interactive parts list
+│       ├── FeatureCard.tsx         # Feature card
+│       ├── SectionContainer.tsx
+│       ├── SectionTitle.tsx
+│       ├── FeatureGrid.tsx
+│       ├── TwoColumnSection.tsx
+│       ├── StepList.tsx
+│       └── SVGIcon.tsx             # Shared icon rendering wrapper
+├── icons/                  # SVG icon components (built on SVGIcon)
+├── theme/                  # Material-UI configuration (colors, typography)
+├── hooks/                  # Custom React hooks
+├── data/                   # Static data (ex: stlGroups.ts — STL parts/groups)
+├── types/                  # Centralized TypeScript types, by domain
+├── assets/                 # Images and static files
+├── App.tsx                 # Root component (theme)
+└── main.tsx                # Entry point
 ```
+
+Every folder above has a barrel `index.ts` — import from the folder (`@/icons`), not the individual file. See `CLAUDE.md` for the full architecture reference.
 
 ## Running Locally
 
@@ -100,8 +109,12 @@ yarn build
 # Preview the production build
 yarn preview
 
-# Linting (Oxlint)
+# Type-check the whole project (does not emit files)
+yarn typecheck
+
+# Linting (ESLint)
 yarn lint
+yarn lint:fix  # Auto-fix what it can
 
 # Formatting with Prettier
 yarn format
