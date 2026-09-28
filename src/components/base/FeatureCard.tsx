@@ -1,7 +1,9 @@
+import { FC } from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
+import type { FeatureCardProps } from '@/types'
 
-export function FeatureCard({ icon: Icon, title, description }) {
+export const FeatureCard: FC<FeatureCardProps> = ({ icon: Icon, title, description }) => {
   const theme = useTheme()
 
   return (

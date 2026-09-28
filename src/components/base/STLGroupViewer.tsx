@@ -1,21 +1,29 @@
-import { useState, useEffect } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { Box } from '@mui/material'
 import { useTheme } from '@mui/material'
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import { BufferGeometry } from 'three'
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
+import type { STLGroupViewerProps } from '@/types'
 
-const stlCache = new Map()
+const stlCache = new Map<string, BufferGeometry>()
 
-function STLPart({ file, highlightPartId, partId }) {
-  const [geometry, setGeometry] = useState(null)
+interface STLPartMeshProps {
+  file: string
+  highlightPartId?: string | null
+  partId: string
+}
+
+const STLPartMesh: FC<STLPartMeshProps> = ({ file, highlightPartId, partId }) => {
+  const [geometry, setGeometry] = useState<BufferGeometry | null>(null)
   const [error, setError] = useState(false)
 
   useEffect(() => {
     if (!file) return
 
     if (stlCache.has(file)) {
-      setGeometry(stlCache.get(file))
+      setGeometry(stlCache.get(file) ?? null)
       return
     }
 
@@ -47,7 +55,7 @@ function STLPart({ file, highlightPartId, partId }) {
   )
 }
 
-export function STLGroupViewer({ parts, highlightPartId = null }) {
+export const STLGroupViewer: FC<STLGroupViewerProps> = ({ parts, highlightPartId = null }) => {
   const theme = useTheme()
   const bgColor = theme.palette.mode === 'dark' ? '#0a0a0a' : '#f5f5f5'
 
@@ -69,7 +77,7 @@ export function STLGroupViewer({ parts, highlightPartId = null }) {
         <OrbitControls autoRotate autoRotateSpeed={2} />
 
         {parts.map(part => (
-          <STLPart
+          <STLPartMesh
             key={part.id}
             file={part.file}
             partId={part.id}

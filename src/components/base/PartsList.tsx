@@ -1,8 +1,10 @@
+import { FC } from 'react'
 import { Box, Button, Typography, Stack } from '@mui/material'
 import { useTheme } from '@mui/material'
 import { ChevronRight } from '@/icons'
+import type { PartsListProps } from '@/types'
 
-export function PartsList({ parts, selectedId, onSelect }) {
+export const PartsList: FC<PartsListProps> = ({ parts, selectedId, onSelect }) => {
   const theme = useTheme()
   const selectedPart = parts.find(p => p.id === selectedId)
 

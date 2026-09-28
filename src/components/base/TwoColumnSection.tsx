@@ -1,13 +1,15 @@
+import { FC } from 'react'
 import { Grid, Box } from '@mui/material'
+import type { TwoColumnSectionProps } from '@/types'
 
-export function TwoColumnSection({
+export const TwoColumnSection: FC<TwoColumnSectionProps> = ({
   left,
   right,
   leftSpan = 5,
   rightSpan = 6,
   gap = 3,
   reverseOnMobile = false,
-}) {
+}) => {
   return (
     <Grid
       container

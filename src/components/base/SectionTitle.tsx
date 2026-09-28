@@ -1,6 +1,13 @@
+import { FC } from 'react'
 import { Box, Typography } from '@mui/material'
+import type { SectionTitleProps } from '@/types'
 
-export function SectionTitle({ label, title, description = '', maxWidth = '100%' }) {
+export const SectionTitle: FC<SectionTitleProps> = ({
+  label,
+  title,
+  description = '',
+  maxWidth = '100%',
+}) => {
   return (
     <Box sx={{ mb: 6, maxWidth }}>
       {label && (

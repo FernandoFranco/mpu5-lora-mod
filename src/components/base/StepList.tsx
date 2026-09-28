@@ -1,7 +1,9 @@
+import { FC } from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
+import type { StepListProps } from '@/types'
 
-export function StepList({ steps }) {
+export const StepList: FC<StepListProps> = ({ steps }) => {
   const theme = useTheme()
 
   return (

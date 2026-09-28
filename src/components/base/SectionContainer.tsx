@@ -1,14 +1,16 @@
+import { FC } from 'react'
 import { Container, Box } from '@mui/material'
 import { useTheme } from '@mui/material'
+import type { SectionContainerProps } from '@/types'
 
-export function SectionContainer({
+export const SectionContainer: FC<SectionContainerProps> = ({
   children,
   id,
   alt = false,
   borderTop = false,
   borderBottom = false,
   py = 6,
-}) {
+}) => {
   const theme = useTheme()
 
   return (

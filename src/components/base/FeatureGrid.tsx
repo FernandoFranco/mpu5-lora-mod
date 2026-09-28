@@ -1,7 +1,9 @@
+import { FC } from 'react'
 import { Grid, Box } from '@mui/material'
+import type { FeatureGridProps } from '@/types'
 import { FeatureCard } from './FeatureCard'
 
-export function FeatureGrid({ features, columns = 3 }) {
+export const FeatureGrid: FC<FeatureGridProps> = ({ features, columns = 3 }) => {
   return (
     <Grid
       container
