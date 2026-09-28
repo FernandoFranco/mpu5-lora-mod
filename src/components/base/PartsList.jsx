@@ -1,6 +1,6 @@
 import { Box, Button, Typography, Stack } from '@mui/material'
 import { useTheme } from '@mui/material'
-import ChevronRight from '../../icons/ChevronRight'
+import { ChevronRight } from '@/icons'
 
 export function PartsList({ parts, selectedId, onSelect }) {
   const theme = useTheme()

@@ -1,10 +1,6 @@
 import { Box, Button, Container, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-import BoxIcon from '../icons/Box'
-import ChipIcon from '../icons/Chip'
-import DownloadIcon from '../icons/Download'
-import LoRaIcon from '../icons/LoRa'
-import MeshtasticIcon from '../icons/Meshtastic'
+import { BoxIcon, ChipIcon, DownloadIcon, LoRaIcon, MeshtasticIcon } from '@/icons'
 
 export default function HeroSection() {
   const theme = useTheme()

@@ -1,6 +1,5 @@
 import { Box, Container, Typography, Link, useTheme } from '@mui/material'
-import GitHubIconCustom from '../icons/GitHub'
-import LoRaIcon from '../icons/LoRa'
+import { GitHubIconCustom, LoRaIcon } from '@/icons'
 
 export default function Footer() {
   const theme = useTheme()

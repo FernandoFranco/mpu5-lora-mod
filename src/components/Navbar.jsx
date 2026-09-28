@@ -15,13 +15,15 @@ import {
   useTheme,
 } from '@mui/material'
 
-import CloseIcon from '../icons/Close'
-import GitHubIconCustom from '../icons/GitHub'
-import HeartIcon from '../icons/Heart'
-import LoRaIcon from '../icons/LoRa'
-import MenuIcon from '../icons/Menu'
-import MoonIcon from '../icons/Moon'
-import SunIcon from '../icons/Sun'
+import {
+  CloseIcon,
+  GitHubIconCustom,
+  HeartIcon,
+  LoRaIcon,
+  MenuIcon,
+  MoonIcon,
+  SunIcon,
+} from '@/icons'
 
 const navLinks = [
   { label: 'Sobre', href: '#sobre' },

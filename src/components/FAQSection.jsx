@@ -1,6 +1,6 @@
 import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 import { useTheme } from '@mui/material'
-import InfoCircle from '../icons/InfoCircle'
+import { InfoCircle } from '@/icons'
 import { SectionContainer } from './base/SectionContainer'
 import { SectionTitle } from './base/SectionTitle'
 import { TwoColumnSection } from './base/TwoColumnSection'
