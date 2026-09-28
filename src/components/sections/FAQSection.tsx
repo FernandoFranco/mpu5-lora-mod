@@ -1,76 +1,82 @@
 import { FC } from 'react'
-import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, Link } from '@mui/material'
 import { useTheme } from '@mui/material'
-import { SectionContainer, SectionTitle, TwoColumnSection } from '@/components/base'
-import { InfoCircle } from '@/icons'
+import { ExternalLink, SectionContainer, SectionTitle, TwoColumnSection } from '@/components/base'
+import { externalLinks } from '@/data'
 
 export const FAQSection: FC = () => {
   const theme = useTheme()
 
   const faqs = [
     {
-      question: 'O que é LoRa?',
-      answer:
-        'LoRa (Long Range) é uma tecnologia de radio-frequência que permite comunicação de longo alcance com baixo consumo de energia. Funciona em frequências livres como 915 MHz ou 868 MHz e é ideal para redes mesh descentralizadas.',
+      id: 'outros-radios',
+      question: (
+        <>
+          Funciona com rádios{' '}
+          <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink> que não são MPU5?
+        </>
+      ),
+      answer: (
+        <>
+          Sim. Qualquer nó <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>{' '}
+          na mesma região e canal conversa com o seu, como T-Beam, RAK Wireless e outras placas
+          compatíveis.
+        </>
+      ),
     },
     {
-      question: 'Preciso de internet para usar o MPU5?',
-      answer:
-        'Não. O MPU5 funciona completamente offline usando a rede mesh LoRa. Você pode se comunicar com outros dispositivos MPU5 sem dependência de internet, torres celulares ou servidores centralizados.',
+      id: 'programar',
+      question: 'Preciso saber programar?',
+      answer: 'Não. O firmware é gravado pelo navegador e toda a configuração é feita no app.',
     },
     {
-      question: 'Qual é o alcance máximo?',
+      id: 'alcance',
+      question: 'Qual o alcance?',
       answer:
-        'O alcance varia conforme topografia, obstáculos e antena utilizada. Tipicamente, um dispositivo isolado consegue comunicar de 2-5 km em linha reta. Em uma rede mesh com múltiplos nós, o alcance efetivo se estende significativamente.',
+        'Depende muito do terreno, da vegetação e da antena. Cada rádio a mais no time funciona como repetidor e amplia a cobertura.',
     },
     {
-      question: 'Posso contribuir para o projeto?',
-      answer:
-        'Sim! Você pode reportar bugs, enviar pull requests no GitHub, criar tutoriais, traduzir a documentação ou compartilhar seus próprios builds. Veja o repositório para diretrizes de contribuição.',
+      id: 'venda',
+      question: 'Posso vender montagens prontas?',
+      answer: (
+        <>
+          Não sem autorização prévia. O projeto é licenciado sob CC BY-NC-SA 4.0: uso pessoal é
+          livre, mas venda de peças, kits ou serviços exige contato com o autor. Veja a seção{' '}
+          <Link href="#apoie" sx={{ color: 'primary.main' }}>
+            Apoie o projeto
+          </Link>{' '}
+          para mais detalhes.
+        </>
+      ),
     },
   ]
 
-  const leftContent = (
-    <Box>
-      <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
-        <InfoCircle />
-        <Typography sx={{ fontWeight: 600, fontSize: '18px' }}>Perguntas Frequentes</Typography>
-      </Box>
-      <Typography sx={{ fontSize: '15px', color: 'text.secondary', lineHeight: 1.6 }}>
-        Encontre respostas para dúvidas comuns sobre o MPU5, LoRa e como contribuir.
-      </Typography>
-    </Box>
-  )
+  const leftContent = <SectionTitle label="06 — FAQ" title="Perguntas frequentes" />
 
   const rightContent = (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      {faqs.map((faq, idx) => (
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      {faqs.map(faq => (
         <Accordion
-          key={idx}
+          key={faq.id}
+          disableGutters
+          elevation={0}
           sx={{
             backgroundColor: 'transparent',
-            border: `1px solid ${theme.palette.mode === 'dark' ? '#333' : '#ddd'}`,
-            '&.Mui-expanded': {
-              backgroundColor: theme.palette.mode === 'dark' ? '#1a1a1a' : '#f9f9f9',
-            },
-            '&:before': {
-              display: 'none',
-            },
+            borderBottom: `1px solid ${theme.palette.mode === 'dark' ? '#262C22' : '#e0e0e0'}`,
+            '&:before': { display: 'none' },
           }}
         >
           <AccordionSummary
             expandIcon={<span>+</span>}
             sx={{
-              fontWeight: 600,
-              '& .MuiAccordionSummary-content': {
-                margin: '12px 0',
-              },
+              px: 0,
+              '& .MuiAccordionSummary-content': { margin: '20px 0' },
             }}
           >
-            <Typography sx={{ fontWeight: 600, fontSize: '15px' }}>{faq.question}</Typography>
+            <Typography sx={{ fontWeight: 600, fontSize: '18px' }}>{faq.question}</Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{ pt: 0 }}>
-            <Typography sx={{ fontSize: '14px', color: 'text.secondary', lineHeight: 1.6 }}>
+          <AccordionDetails sx={{ px: 0, pt: 0, pb: 3 }}>
+            <Typography sx={{ fontSize: '15px', color: 'text.secondary', lineHeight: 1.65 }}>
               {faq.answer}
             </Typography>
           </AccordionDetails>
@@ -80,13 +86,7 @@ export const FAQSection: FC = () => {
   )
 
   return (
-    <SectionContainer id="faq">
-      <SectionTitle
-        label="FAQ"
-        title="Dúvidas Frequentes"
-        description="Encontre as respostas que procura"
-      />
-
+    <SectionContainer id="faq" borderTop>
       <TwoColumnSection
         left={leftContent}
         right={rightContent}

@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { Box, Button, Container, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
+import { ExternalLink } from '@/components/base'
+import { externalLinks } from '@/data'
 import { BoxIcon, ChipIcon, DownloadIcon, LoRaIcon, MeshtasticIcon } from '@/icons'
 
 export const HeroSection: FC = () => {
@@ -103,9 +105,13 @@ export const HeroSection: FC = () => {
                 maxWidth: 540,
               }}
             >
-              Arquivos 3D e guia completo para transformar a MPU5 fake em um rádio mesh funcional
-              para airsoft — com Heltec, LoRa e Meshtastic. Mensagens, posição do time e comunicação
-              sem internet e sem mensalidade.
+              Arquivos STL e guia completo para transformar a MPU5 fake em um rádio mesh funcional
+              para airsoft, com LoRa e{' '}
+              <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>. Mensagens,
+              posição do time e comunicação sem internet e sem mensalidade, direto pelos apps{' '}
+              <ExternalLink href={externalLinks.meshtasticDownloads}>Meshtastic</ExternalLink>,{' '}
+              <ExternalLink href={externalLinks.atak}>ATAK</ExternalLink> ou{' '}
+              <ExternalLink href={externalLinks.itak}>iTAK</ExternalLink>.
             </Typography>
 
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 3 }}>
@@ -175,7 +181,9 @@ export const HeroSection: FC = () => {
             >
               <span>Licença [LICENÇA]</span>
               <span>·</span>
-              <span>Firmware Meshtastic</span>
+              <span>
+                Firmware <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>
+              </span>
               <span>·</span>
               <span>PT-BR</span>
             </Box>
@@ -469,11 +477,11 @@ export const HeroSection: FC = () => {
         <Container maxWidth="lg" sx={{ py: 4.5 }}>
           <Box sx={{ display: 'flex', gap: 4, width: '100%' }}>
             {[
-              { icon: ChipIcon, label: 'Heltec', desc: 'ESP32-S3 + LoRa SX1262' },
+              { icon: ChipIcon, label: 'Placa LoRa', desc: 'ESP32-S3 + LoRa SX1262' },
               { icon: LoRaIcon, label: 'LoRa 915 MHz', desc: 'Faixa ISM usada no Brasil' },
               {
                 icon: MeshtasticIcon,
-                label: 'Meshtastic',
+                label: <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>,
                 desc: 'Firmware aberto, app Android e iOS',
               },
               { icon: BoxIcon, label: '6 peças STL', desc: 'Impressão em PETG ou ASA' },

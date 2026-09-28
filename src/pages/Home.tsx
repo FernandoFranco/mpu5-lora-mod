@@ -17,11 +17,11 @@ export const Home: FC<HomeProps> = ({ onToggleTheme, isDark }) => {
     <Box>
       <Navbar onToggleTheme={onToggleTheme} isDark={isDark} />
       <HeroSection />
+      <SupportSection />
       <AboutSection />
       <HowItWorksSection />
       <FilesSection />
       <AssemblySection />
-      <SupportSection />
       <FAQSection />
       <Footer />
     </Box>

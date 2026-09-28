@@ -1,153 +1,150 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
-import { SectionContainer, SectionTitle } from '@/components/base'
+import { ExternalLink, SectionContainer, SectionTitle } from '@/components/base'
+import { externalLinks } from '@/data'
+import { NetworkIcon, Phone, RadioDevice } from '@/icons'
 
 export const HowItWorksSection: FC = () => {
   const theme = useTheme()
+  const isDark = theme.palette.mode === 'dark'
 
-  // Diagrama SVG simples
-  const diagram = (
-    <svg width="100%" height="200" viewBox="0 0 600 200" style={{ marginBottom: '40px' }}>
-      {/* Conexões */}
-      <line
-        x1="80"
-        y1="100"
-        x2="140"
-        y2="100"
-        stroke={theme.palette.text.primary}
-        strokeWidth="2"
-      />
-      <line
-        x1="220"
-        y1="100"
-        x2="280"
-        y2="100"
-        stroke={theme.palette.text.primary}
-        strokeWidth="2"
-      />
-      <line
-        x1="360"
-        y1="100"
-        x2="420"
-        y2="100"
-        stroke={theme.palette.text.primary}
-        strokeWidth="2"
-      />
-      <line
-        x1="500"
-        y1="100"
-        x2="540"
-        y2="100"
-        stroke={theme.palette.text.primary}
-        strokeWidth="2"
-      />
+  const flowNode = (
+    icon: ReactNode,
+    title: string,
+    description: ReactNode,
+    accented = false
+  ): ReactNode => (
+    <Box
+      sx={{
+        width: { xs: '100%', md: accented ? 290 : 250 },
+        padding: 3,
+        backgroundColor: accented
+          ? isDark
+            ? '#2A1B0E'
+            : 'rgba(255,138,51,0.08)'
+          : 'background.default',
+        border: `1px solid ${accented ? theme.palette.primary.main : isDark ? '#2C3327' : '#e0e0e0'}`,
+        borderRadius: '16px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 1.5,
+      }}
+    >
+      <Box sx={{ color: accented ? 'primary.main' : 'text.primary' }}>{icon}</Box>
+      <Typography
+        sx={{ fontFamily: 'Chakra Petch, sans-serif', fontWeight: 600, fontSize: '19px' }}
+      >
+        {title}
+      </Typography>
+      <Typography
+        sx={{
+          fontSize: '14px',
+          lineHeight: 1.55,
+          color: accented ? 'text.primary' : 'text.secondary',
+        }}
+      >
+        {description}
+      </Typography>
+    </Box>
+  )
 
-      {/* Caixas */}
-      {/* Celular */}
-      <rect
-        x="20"
-        y="70"
-        width="60"
-        height="60"
-        fill="transparent"
-        stroke={theme.palette.primary.main}
-        strokeWidth="2"
-        rx="4"
+  const flowLink = (label: string, accented = false): ReactNode => (
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 1,
+        px: 1.5,
+        minWidth: 60,
+      }}
+    >
+      <Typography
+        sx={{
+          fontFamily: 'IBM Plex Mono, monospace',
+          fontSize: '12px',
+          letterSpacing: '0.08em',
+          color: accented ? 'primary.main' : 'text.secondary',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {label}
+      </Typography>
+      <Box
+        sx={{
+          width: '100%',
+          height: 2,
+          backgroundImage: `repeating-linear-gradient(90deg, ${
+            accented ? theme.palette.primary.main : isDark ? '#6F7565' : '#bbb'
+          } 0 6px, transparent 6px 12px)`,
+        }}
       />
-      <text x="50" y="105" textAnchor="middle" fill={theme.palette.text.primary} fontSize="12">
-        Celular
-      </text>
-
-      {/* Bluetooth */}
-      <rect
-        x="150"
-        y="70"
-        width="60"
-        height="60"
-        fill="transparent"
-        stroke={theme.palette.primary.main}
-        strokeWidth="2"
-        rx="4"
-      />
-      <text x="180" y="105" textAnchor="middle" fill={theme.palette.text.primary} fontSize="12">
-        Bluetooth
-      </text>
-
-      {/* MPU5 */}
-      <rect
-        x="290"
-        y="70"
-        width="60"
-        height="60"
-        fill="transparent"
-        stroke={theme.palette.primary.main}
-        strokeWidth="2"
-        rx="4"
-      />
-      <text x="320" y="105" textAnchor="middle" fill={theme.palette.text.primary} fontSize="12">
-        MPU5
-      </text>
-
-      {/* LoRa Mesh */}
-      <rect
-        x="430"
-        y="70"
-        width="60"
-        height="60"
-        fill="transparent"
-        stroke={theme.palette.primary.main}
-        strokeWidth="2"
-        rx="4"
-      />
-      <text x="460" y="105" textAnchor="middle" fill={theme.palette.text.primary} fontSize="12">
-        LoRa Mesh
-      </text>
-
-      {/* Time */}
-      <rect
-        x="540"
-        y="70"
-        width="50"
-        height="60"
-        fill="transparent"
-        stroke={theme.palette.primary.main}
-        strokeWidth="2"
-        rx="4"
-      />
-      <text x="565" y="105" textAnchor="middle" fill={theme.palette.text.primary} fontSize="12">
-        Time
-      </text>
-    </svg>
+    </Box>
   )
 
   const steps = [
     {
-      title: 'Dispositivo Local',
-      description: 'Jogador usa celular com app Meshtastic para enviar mensagens.',
+      letter: 'A',
+      description: 'Você digita no app. O celular entrega a mensagem ao rádio pelo Bluetooth.',
     },
     {
-      title: 'Conexão Mesh',
-      description: 'MPU5 relê a mensagem via LoRa para outros dispositivos na rede.',
+      letter: 'B',
+      description: 'O rádio transmite em LoRa. Cada nó que ouve retransmite, estendendo o alcance.',
     },
     {
-      title: 'Comunicação Descentralizada',
-      description: 'Cada nó amplia o alcance sem dependência de servidor central.',
+      letter: 'C',
+      description: 'O display OLED mostra mensagens e status mesmo com o celular no bolso.',
     },
   ]
 
   return (
-    <SectionContainer id="como-funciona">
+    <SectionContainer id="como-funciona" alt>
       <SectionTitle
-        label="COMO FUNCIONA"
-        title="Fluxo de Comunicação"
-        description="Entenda a arquitetura da rede mesh LoRa"
+        label="03 — COMO FUNCIONA"
+        title="Celular na mão, rádio no colete."
+        description="O celular é a interface; a MPU5 é o rádio. Entre os rádios, o LoRa leva mensagens por longas distâncias com consumo muito baixo."
+        maxWidth="680px"
       />
 
-      {/* Diagrama */}
-      <Box sx={{ my: 4 }}>{diagram}</Box>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'center',
+          gap: { xs: 3, md: 0 },
+          mb: 7,
+        }}
+      >
+        {flowNode(
+          <Phone size="lg" />,
+          'Seu celular',
+          <>
+            Apps <ExternalLink href={externalLinks.meshtasticDownloads}>Meshtastic</ExternalLink>,{' '}
+            <ExternalLink href={externalLinks.atak}>ATAK</ExternalLink> ou{' '}
+            <ExternalLink href={externalLinks.itak}>iTAK</ExternalLink>: chat, mapa, configurações
+            do nó.
+          </>
+        )}
+        {flowLink('BLUETOOTH')}
+        {flowNode(
+          <RadioDevice size="lg" />,
+          'MPU5 MESH',
+          'Placa LoRa + bateria + antena 915 MHz dentro da réplica.',
+          true
+        )}
+        {flowLink('LoRa MESH', true)}
+        {flowNode(
+          <NetworkIcon size="lg" />,
+          'O resto do time',
+          <>
+            Qualquer nó <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink> no
+            mesmo canal, MPU5 ou não.
+          </>
+        )}
+      </Box>
 
-      {/* Grid 3 colunas */}
       <Box
         sx={{
           display: 'grid',
@@ -155,19 +152,19 @@ export const HowItWorksSection: FC = () => {
           gap: 3,
         }}
       >
-        {steps.map((step, idx) => (
-          <Box key={idx}>
+        {steps.map(step => (
+          <Box key={step.letter} sx={{ display: 'flex', gap: 1.75, alignItems: 'flex-start' }}>
             <Typography
               sx={{
-                fontFamily: 'Chakra Petch, sans-serif',
-                fontWeight: 600,
-                fontSize: '18px',
-                mb: 1,
+                fontFamily: 'IBM Plex Mono, monospace',
+                fontSize: '13px',
+                color: 'primary.main',
+                pt: 0.375,
               }}
             >
-              {step.title}
+              {step.letter}
             </Typography>
-            <Typography sx={{ fontSize: '15px', color: 'text.secondary' }}>
+            <Typography sx={{ fontSize: '15px', lineHeight: 1.6, color: 'text.secondary' }}>
               {step.description}
             </Typography>
           </Box>

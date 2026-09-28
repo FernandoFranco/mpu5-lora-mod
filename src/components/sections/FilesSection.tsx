@@ -16,29 +16,29 @@ export const FilesSection: FC = () => {
   return (
     <SectionContainer id="arquivos">
       <SectionTitle
-        label="ARQUIVOS"
-        title="Modelos 3D para Impressão"
-        description="Explore os componentes STL do MPU5"
+        label="04 — ARQUIVOS"
+        title="Todas as peças, prontas para fatiar."
+        description="Escolha um grupo de peças, confira as configurações recomendadas de impressão e baixe o arquivo, peça por peça ou o pacote completo."
+        maxWidth="640px"
       />
 
       {/* Header com botões */}
-      <Box sx={{ mb: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography sx={{ fontSize: '16px', color: 'text.secondary' }}>
-          Selecione um grupo para visualizar
-        </Typography>
-        <Box sx={{ gap: 2, display: 'flex' }}>
-          <Button variant="outlined" size="small">
-            Fonte CAD
-          </Button>
-          <Button variant="outlined" size="small">
-            Baixar tudo
-          </Button>
-        </Box>
+      <Box sx={{ mb: 4, display: 'flex', justifyContent: 'flex-end', gap: 1.5 }}>
+        <Button
+          variant="contained"
+          sx={{ borderRadius: '10px', fontWeight: 600, backgroundColor: 'primary.main' }}
+        >
+          Baixar tudo (.zip)
+        </Button>
       </Box>
 
       {/* Seletor de grupos */}
       <Box sx={{ mb: 4 }}>
-        <ButtonGroup variant="outlined" fullWidth>
+        <ButtonGroup
+          variant="outlined"
+          fullWidth
+          sx={{ '& .MuiButtonGroup-grouped': { borderRadius: '10px' } }}
+        >
           {stlGroups.map(group => (
             <Button
               key={group.id}
@@ -64,15 +64,18 @@ export const FilesSection: FC = () => {
               sx={{
                 width: '100%',
                 height: 500,
-                backgroundColor: '#f5f5f5',
-                borderRadius: 2,
-                border: '1px solid #ddd',
+                backgroundColor: 'background.paper',
+                borderRadius: '20px',
+                border: '1px solid',
+                borderColor: 'divider',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <Typography>STL Viewer (dependência não instalada)</Typography>
+              <Typography sx={{ color: 'text.secondary' }}>
+                STL Viewer (dependência não instalada)
+              </Typography>
             </Box>
           </Grid>
 

@@ -102,7 +102,9 @@ export const Footer: FC = () => {
                 Termos de uso
               </Link>
               <Link
-                href="#"
+                href="https://github.com/your-user/mpu5/blob/main/LICENSE"
+                target="_blank"
+                rel="noopener"
                 sx={{
                   color: theme.palette.text.secondary,
                   textDecoration: 'none',
@@ -110,10 +112,10 @@ export const Footer: FC = () => {
                   '&:hover': { color: theme.palette.primary.main },
                 }}
               >
-                Licença (MIT)
+                Licença (CC BY-NC-SA 4.0)
               </Link>
               <Link
-                href="#"
+                href="mailto:atr.franco@gmail.com"
                 sx={{
                   color: theme.palette.text.secondary,
                   textDecoration: 'none',
@@ -134,7 +136,7 @@ export const Footer: FC = () => {
           }}
         >
           <Typography variant="caption" sx={{ color: theme.palette.text.secondary }}>
-            © 2026 MPU5 LoRa Mod — Licença MIT. Não comercial — uso pessoal para airsoft liberado.
+            Licença CC BY-NC-SA 4.0 · 2026 Fernando Franco. Uso pessoal e não comercial liberado.
             Para uso comercial, entre em contato.
           </Typography>
         </Box>

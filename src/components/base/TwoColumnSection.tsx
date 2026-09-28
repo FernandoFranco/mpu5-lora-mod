@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Grid, Box } from '@mui/material'
+import { Box } from '@mui/material'
 import type { TwoColumnSectionProps } from '@/types'
 
 export const TwoColumnSection: FC<TwoColumnSectionProps> = ({
@@ -11,19 +11,18 @@ export const TwoColumnSection: FC<TwoColumnSectionProps> = ({
   reverseOnMobile = false,
 }) => {
   return (
-    <Grid
-      container
-      spacing={gap}
+    <Box
       sx={{
         display: 'grid',
         gridTemplateColumns: { xs: '1fr', md: 'repeat(12, 1fr)' },
-        gap: gap * 8,
+        gap,
       }}
     >
       <Box
         sx={{
           gridColumn: { xs: 'span 12', md: `span ${leftSpan}` },
           order: reverseOnMobile ? { xs: 2, md: 1 } : 1,
+          minWidth: 0,
         }}
       >
         {left}
@@ -32,10 +31,11 @@ export const TwoColumnSection: FC<TwoColumnSectionProps> = ({
         sx={{
           gridColumn: { xs: 'span 12', md: `span ${rightSpan}` },
           order: reverseOnMobile ? { xs: 1, md: 2 } : 2,
+          minWidth: 0,
         }}
       >
         {right}
       </Box>
-    </Grid>
+    </Box>
   )
 }

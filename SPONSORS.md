@@ -1,19 +1,16 @@
 # Sponsors
 
-Thank you to everyone who supports the MPU5 LoRa Mod project! This file lists our sponsors and will be updated as new supporters join.
+Thank you to everyone who supports the MPU5 LoRa Mod project! Every contribution listed here was
+a one-time donation — this project never asks for recurring payments or subscriptions of any kind.
 
-## Maintainers
-
-_No sponsors at this tier yet._
-
-## Collaborators
-
-_No sponsors at this tier yet._
+Donations via Pix or GitHub Sponsors both count equally. If you'd rather not be listed, that's
+completely fine — just let us know when you donate and we won't add your name.
 
 ## Supporters
 
-_No sponsors at this tier yet._
+_No sponsors listed yet._
 
 ---
 
-Want to support the project? See the "Support the Project" section in [README.md](README.md) for Pix and GitHub Sponsors options.
+Want to support the project? See the "Support the Project" section in [README.md](README.md) for
+Pix and GitHub Sponsors options.

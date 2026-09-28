@@ -156,12 +156,14 @@ See `CLAUDE.md` for details on code architecture and project conventions.
 
 ## Support the Project
 
-Always free. Donations pay for filament, test boards, and development hours.
+Always free. Every donation is a one-time gift — no subscriptions, no recurring charges, no
+strings attached. Donations pay for filament, test boards, and development hours.
 
 - **Pix**: Instant support (key and QR available on the site)
-- **GitHub Sponsors**: One-time or monthly support directly through GitHub
+- **GitHub Sponsors**: One-time support directly through GitHub
 
-See `SPONSORS.md` for the list of sponsors who supported this project.
+Both count equally toward `SPONSORS.md`. Don't want to be listed? Just say so when you donate and
+we'll leave your name out.
 
 ## Legal Notice
 

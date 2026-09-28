@@ -5,7 +5,6 @@ import {
   Button,
   Drawer,
   IconButton,
-  Link,
   List,
   ListItem,
   ListItemButton,
@@ -14,23 +13,14 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
-import {
-  CloseIcon,
-  GitHubIconCustom,
-  HeartIcon,
-  LoRaIcon,
-  MenuIcon,
-  MoonIcon,
-  SunIcon,
-} from '@/icons'
+import { CloseIcon, LoRaIcon, MenuIcon, MoonIcon, StarIcon, SunIcon } from '@/icons'
 import type { NavbarProps } from '@/types'
 
 const navLinks = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Como Funciona', href: '#como-funciona' },
-  { label: 'Arquivos', href: '#arquivos' },
+  { label: 'Arquivos STL', href: '#arquivos' },
   { label: 'Montagem', href: '#montagem' },
-  { label: 'Apoie', href: '#apoie' },
   { label: 'FAQ', href: '#faq' },
 ]
 
@@ -134,22 +124,25 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
           </Box>
         )}
 
-        <Link
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ display: 'flex' }}
-        >
-          <IconButton
-            color="inherit"
+        {!isMobile && (
+          <Button
+            component="a"
+            href="https://github.com/your-user/mpu5"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outlined"
+            startIcon={<StarIcon size="sm" />}
             sx={{
+              textTransform: 'none',
+              borderColor: theme.palette.mode === 'dark' ? '#343C2E' : '#E0E0E0',
               color: theme.palette.text.primary,
-              '&:hover': { color: theme.palette.primary.main },
+              fontSize: '14px',
+              fontWeight: 500,
             }}
           >
-            <GitHubIconCustom size="md" />
-          </IconButton>
-        </Link>
+            Star no GitHub
+          </Button>
+        )}
 
         <IconButton
           onClick={onToggleTheme}
@@ -162,24 +155,6 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
         >
           {isDark ? <SunIcon size="md" /> : <MoonIcon size="md" />}
         </IconButton>
-
-        <Button
-          variant="outlined"
-          size="small"
-          startIcon={<HeartIcon size="sm" />}
-          sx={{
-            textTransform: 'none',
-            borderColor: theme.palette.primary.main,
-            color: theme.palette.primary.main,
-            '&:hover': {
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.mode === 'dark' ? '#0A0A0A' : '#FFFFFF',
-            },
-            fontSize: '0.85rem',
-          }}
-        >
-          Apoie
-        </Button>
 
         {isMobile && (
           <IconButton onClick={() => setDrawerOpen(true)} color="inherit" sx={{ display: 'flex' }}>

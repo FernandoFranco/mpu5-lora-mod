@@ -11,5 +11,6 @@ export type {
   PartsListProps,
   NavbarProps,
   HomeProps,
+  ExternalLinkProps,
 } from './components'
 export type { STLPart, STLGroup } from './data'

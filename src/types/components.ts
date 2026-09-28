@@ -31,8 +31,8 @@ export interface SectionTitleProps {
 
 export interface Step {
   number: number | string
-  title: string
-  description: string
+  title: ReactNode
+  description: ReactNode
   content?: ReactNode
   highlight?: boolean
 }
@@ -69,4 +69,9 @@ export interface NavbarProps {
 export interface HomeProps {
   onToggleTheme: () => void
   isDark: boolean
+}
+
+export interface ExternalLinkProps {
+  href: string
+  children: ReactNode
 }

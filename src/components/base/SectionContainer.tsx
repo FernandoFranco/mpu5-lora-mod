@@ -17,7 +17,11 @@ export const SectionContainer: FC<SectionContainerProps> = ({
     <Box
       id={id}
       sx={{
-        backgroundColor: alt ? '#121510' : 'background.default',
+        backgroundColor: alt
+          ? theme.palette.mode === 'dark'
+            ? '#121510'
+            : '#F8F8F8'
+          : 'background.default',
         borderTop: borderTop
           ? `1px solid ${theme.palette.mode === 'dark' ? '#1F241C' : '#e0e0e0'}`
           : 'none',
