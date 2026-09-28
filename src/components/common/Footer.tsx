@@ -69,19 +69,6 @@ export const Footer: FC = () => {
                 </Box>
                 GitHub
               </Link>
-              <Link
-                href="https://discord.gg"
-                target="_blank"
-                rel="noopener"
-                sx={{
-                  color: theme.palette.text.secondary,
-                  textDecoration: 'none',
-                  fontSize: '0.9rem',
-                  '&:hover': { color: theme.palette.primary.main },
-                }}
-              >
-                Discord
-              </Link>
             </Box>
           </Box>
 
@@ -115,7 +102,9 @@ export const Footer: FC = () => {
                 Licença (CC BY-NC-SA 4.0)
               </Link>
               <Link
-                href="mailto:atr.franco@gmail.com"
+                href="https://github.com/your-user/mpu5/issues/new"
+                target="_blank"
+                rel="noopener"
                 sx={{
                   color: theme.palette.text.secondary,
                   textDecoration: 'none',
@@ -136,8 +125,8 @@ export const Footer: FC = () => {
           }}
         >
           <Typography variant="caption" sx={{ color: theme.palette.text.secondary }}>
-            Licença CC BY-NC-SA 4.0 · 2026 Fernando Franco. Uso pessoal e não comercial liberado.
-            Para uso comercial, entre em contato.
+            Licença CC BY-NC-SA 4.0 · {new Date().getFullYear()} Fernando Henrique Alves Franco. Uso
+            pessoal e não comercial liberado. Para uso comercial, entre em contato.
           </Typography>
         </Box>
       </Container>

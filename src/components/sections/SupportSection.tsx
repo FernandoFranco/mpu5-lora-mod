@@ -28,7 +28,7 @@ export const SupportSection: FC = () => {
       <SectionTitle
         label="01 — APOIE O PROJETO"
         title="Gratuito para sempre. Mantido por quem usa."
-        description="O MPU5 LoRa Mod não tem patrocínio nem fins lucrativos. Toda doação é única, sem mensalidade, sem assinatura e sem compromisso. O valor ajuda a pagar filamento, placas para testes e o tempo dedicado às próximas versões."
+        description="O MPU5 LoRa Mod não tem patrocínio nem fins lucrativos. Qualquer valor ajuda: a doação cobre filamento, placas para testes e o tempo dedicado às próximas versões."
         maxWidth="700px"
       />
 
@@ -72,8 +72,7 @@ export const SupportSection: FC = () => {
             </Box>
 
             <Typography sx={{ fontSize: '14px', lineHeight: 1.6, color: 'text.secondary' }}>
-              Aponte a câmera do app do seu banco ou copie a chave abaixo. Qualquer valor ajuda,
-              sempre como doação única e sem vínculo.
+              Aponte a câmera do app do seu banco ou copie a chave abaixo.
             </Typography>
 
             <Box sx={{ display: 'flex', gap: 1, alignItems: 'stretch' }}>
@@ -141,7 +140,7 @@ export const SupportSection: FC = () => {
             </Box>
 
             <Typography sx={{ fontSize: '15px', lineHeight: 1.6, color: 'text.secondary' }}>
-              Doação única, direto pelo GitHub, sem assinatura, sem mensalidade e sem compromisso.
+              Direto pelo GitHub.
             </Typography>
 
             <Button

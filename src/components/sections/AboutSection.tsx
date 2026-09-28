@@ -8,7 +8,7 @@ import {
   TwoColumnSection,
 } from '@/components/base'
 import { externalLinks } from '@/data'
-import { Lock, MapPin, MeshChat, RadioDevice, Remix, WifiOff } from '@/icons'
+import { Lock, MapPin, MeshChat, Mpu5Icon, Remix, WifiOff } from '@/icons'
 
 export const AboutSection: FC = () => {
   const features = [
@@ -27,8 +27,7 @@ export const AboutSection: FC = () => {
     {
       icon: WifiOff,
       title: 'Zero infraestrutura',
-      description:
-        'Funciona no meio do mato: não depende de operadora, Wi-Fi ou internet. Sem mensalidade.',
+      description: 'Funciona no meio do mato: não depende de operadora, Wi-Fi ou internet.',
     },
     {
       icon: Lock,
@@ -37,10 +36,9 @@ export const AboutSection: FC = () => {
         'Cada time usa seu canal com chave própria (AES-256). O time adversário não lê suas mensagens.',
     },
     {
-      icon: RadioDevice,
+      icon: Mpu5Icon,
       title: 'Visual preservado',
-      description:
-        'As peças ficam escondidas dentro da carcaça. Por fora, continua sendo a sua MPU5, agora com display vivo.',
+      description: 'As peças ficam escondidas dentro da carcaça. Por fora, continua sendo o MPU5.',
     },
     {
       icon: Remix,
@@ -67,10 +65,10 @@ export const AboutSection: FC = () => {
       <Typography sx={{ fontSize: '17px', lineHeight: 1.7, color: 'text.secondary' }}>
         Cada operador leva um nó. Os rádios formam uma rede mesh entre si: se um colega está fora de
         alcance, a mensagem pula pelos outros até chegar. Você conversa e acompanha o time pelo
-        celular, via Bluetooth, sem chip, sem sinal de operadora, sem internet.
-      </Typography>
-      <Typography sx={{ fontSize: '17px', lineHeight: 1.7, color: 'text.secondary' }}>
-        Tudo é aberto: modelos 3D em STL e o passo a passo completo de cortes e montagem.
+        celular, via Bluetooth, sem chip, sem sinal de operadora, sem internet, direto pelos apps{' '}
+        <ExternalLink href={externalLinks.meshtasticDownloads}>Meshtastic</ExternalLink>,{' '}
+        <ExternalLink href={externalLinks.atak}>ATAK</ExternalLink> ou{' '}
+        <ExternalLink href={externalLinks.itak}>iTAK</ExternalLink>.
       </Typography>
     </Box>
   )

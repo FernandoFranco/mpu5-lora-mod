@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
 import { ExternalLink, SectionContainer, SectionTitle } from '@/components/base'
 import { externalLinks } from '@/data'
-import { NetworkIcon, Phone, RadioDevice } from '@/icons'
+import { Mpu5Icon, NetworkIcon, Phone } from '@/icons'
 
 export const HowItWorksSection: FC = () => {
   const theme = useTheme()
@@ -49,40 +49,70 @@ export const HowItWorksSection: FC = () => {
     </Box>
   )
 
-  const flowLink = (label: string, accented = false): ReactNode => (
-    <Box
-      sx={{
-        flexGrow: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 1,
-        px: 1.5,
-        minWidth: 60,
-      }}
-    >
-      <Typography
-        sx={{
-          fontFamily: 'IBM Plex Mono, monospace',
-          fontSize: '12px',
-          letterSpacing: '0.08em',
-          color: accented ? 'primary.main' : 'text.secondary',
-          whiteSpace: 'nowrap',
-        }}
-      >
-        {label}
-      </Typography>
+  const flowLink = (label: string, accented = false): ReactNode => {
+    const lineColor = accented ? theme.palette.primary.main : isDark ? '#6F7565' : '#bbb'
+
+    const labelStyle = {
+      fontFamily: 'IBM Plex Mono, monospace',
+      fontSize: '12px',
+      letterSpacing: '0.08em',
+      color: accented ? 'primary.main' : 'text.secondary',
+      whiteSpace: 'nowrap' as const,
+    }
+
+    const verticalDash = (
       <Box
         sx={{
-          width: '100%',
-          height: 2,
-          backgroundImage: `repeating-linear-gradient(90deg, ${
-            accented ? theme.palette.primary.main : isDark ? '#6F7565' : '#bbb'
-          } 0 6px, transparent 6px 12px)`,
+          width: 2,
+          height: 20,
+          backgroundImage: `repeating-linear-gradient(180deg, ${lineColor} 0 6px, transparent 6px 12px)`,
         }}
       />
-    </Box>
-  )
+    )
+
+    return (
+      <Box
+        sx={{
+          flexGrow: { xs: 0, md: 1 },
+          px: { xs: 0, md: 1.5 },
+          minWidth: { xs: 'auto', md: 60 },
+        }}
+      >
+        {/* Desktop: label above a full-width horizontal line */}
+        <Box
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 1,
+          }}
+        >
+          <Typography sx={labelStyle}>{label}</Typography>
+          <Box
+            sx={{
+              width: '100%',
+              height: 2,
+              backgroundImage: `repeating-linear-gradient(90deg, ${lineColor} 0 6px, transparent 6px 12px)`,
+            }}
+          />
+        </Box>
+
+        {/* Mobile: a continuous vertical line, label breaking it in the middle */}
+        <Box
+          sx={{
+            display: { xs: 'flex', md: 'none' },
+            flexDirection: 'column',
+            alignItems: 'center',
+            py: 1,
+          }}
+        >
+          {verticalDash}
+          <Typography sx={{ ...labelStyle, my: 0.5 }}>{label}</Typography>
+          {verticalDash}
+        </Box>
+      </Box>
+    )
+  }
 
   const steps = [
     {
@@ -95,7 +125,7 @@ export const HowItWorksSection: FC = () => {
     },
     {
       letter: 'C',
-      description: 'O display OLED mostra mensagens e status mesmo com o celular no bolso.',
+      description: 'O resto do time recebe no celular, acompanhando tudo pelos apps.',
     },
   ]
 
@@ -103,8 +133,8 @@ export const HowItWorksSection: FC = () => {
     <SectionContainer id="como-funciona" alt>
       <SectionTitle
         label="03 — COMO FUNCIONA"
-        title="Celular na mão, rádio no colete."
-        description="O celular é a interface; a MPU5 é o rádio. Entre os rádios, o LoRa leva mensagens por longas distâncias com consumo muito baixo."
+        title="Celular na mão, rádio no loadout."
+        description="O celular é a interface; a MPU5 é o nó mesh. Entre os nós, o LoRa leva mensagens por longas distâncias com baixíssimo consumo de energia."
         maxWidth="680px"
       />
 
@@ -113,7 +143,7 @@ export const HowItWorksSection: FC = () => {
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
-          gap: { xs: 3, md: 0 },
+          gap: 0,
           mb: 7,
         }}
       >
@@ -129,9 +159,9 @@ export const HowItWorksSection: FC = () => {
         )}
         {flowLink('BLUETOOTH')}
         {flowNode(
-          <RadioDevice size="lg" />,
+          <Mpu5Icon size="lg" />,
           'MPU5 MESH',
-          'Placa LoRa + bateria + antena 915 MHz dentro da réplica.',
+          'Placa LoRa e bateria escondidas dentro da réplica. A antena 915 MHz fica por fora, no lugar da antena real.',
           true
         )}
         {flowLink('LoRa MESH', true)}

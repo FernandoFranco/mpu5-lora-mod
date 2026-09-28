@@ -21,7 +21,6 @@ import type { Step } from '@/types'
 export const AssemblySection: FC = () => {
   const theme = useTheme()
   const isDark = theme.palette.mode === 'dark'
-  const codeBg = isDark ? '#0A0C09' : '#f5f5f5'
 
   const bomItems = [
     { id: 'mpu5', part: 'Réplica MPU5', qty: '1×' },
@@ -110,41 +109,6 @@ export const AssemblySection: FC = () => {
     </Box>
   )
 
-  const flashBlock = (
-    <Box
-      sx={{
-        mt: 2,
-        backgroundColor: codeBg,
-        border: '1px solid',
-        borderColor: 'divider',
-        borderRadius: '12px',
-        padding: '18px 20px',
-        fontFamily: 'IBM Plex Mono, monospace',
-        fontSize: '13px',
-        lineHeight: 1.9,
-        color: 'text.secondary',
-      }}
-    >
-      <div>
-        <span style={{ opacity: 0.5 }}>1</span>&nbsp;&nbsp;Acesse{' '}
-        <span style={{ color: '#8FD65A' }}>flasher.meshtastic.org</span> no Chrome
-      </div>
-      <div>
-        <span style={{ opacity: 0.5 }}>2</span>&nbsp;&nbsp;Dispositivo:{' '}
-        <span style={{ color: theme.palette.text.primary }}>escolha o modelo da sua placa</span> ·
-        versão estável
-      </div>
-      <div>
-        <span style={{ opacity: 0.5 }}>3</span>&nbsp;&nbsp;Conecte via USB-C e clique em{' '}
-        <span style={{ color: theme.palette.text.primary }}>Flash</span>
-      </div>
-      <div>
-        <span style={{ opacity: 0.5 }}>4</span>&nbsp;&nbsp;No app, defina a região:{' '}
-        <span style={{ color: theme.palette.primary.main }}>[REGIÃO]</span>
-      </div>
-    </Box>
-  )
-
   const flashAlert = (
     <Box
       sx={{
@@ -170,7 +134,7 @@ export const AssemblySection: FC = () => {
       number: 1,
       title: 'Imprima as peças',
       description:
-        'Use as configurações indicadas em cada arquivo. PETG é o mínimo recomendado: PLA deforma dentro de um colete no sol.',
+        'Use a impressora e o filamento de sua preferência. Preenchimento, suporte e paredes recomendados estão em cada arquivo, na seção Arquivos.',
     },
     {
       number: 2,
@@ -198,14 +162,16 @@ export const AssemblySection: FC = () => {
           Grave o <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink> na placa
         </>
       ),
-      description: 'Sem instalar nada: use o flasher oficial pelo navegador, antes de montar.',
-      highlight: true,
-      content: (
+      description: (
         <>
-          {flashBlock}
-          {flashAlert}
+          Sem instalar nada: use o{' '}
+          <ExternalLink href={externalLinks.meshtasticFlasher}>flasher oficial</ExternalLink> pelo
+          navegador, antes de montar. Escolha do modelo, versão e região seguem a documentação do
+          Meshtastic.
         </>
       ),
+      highlight: true,
+      content: flashAlert,
     },
     {
       number: 5,

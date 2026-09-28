@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { Box, Button, Container, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { ExternalLink } from '@/components/base'
 import { externalLinks } from '@/data'
-import { BoxIcon, ChipIcon, DownloadIcon, LoRaIcon, MeshtasticIcon } from '@/icons'
+import { BoxIcon, ChipIcon, LoRaIcon, MeshtasticIcon } from '@/icons'
 
 export const HeroSection: FC = () => {
   const theme = useTheme()
@@ -105,108 +105,35 @@ export const HeroSection: FC = () => {
                 maxWidth: 540,
               }}
             >
-              Arquivos STL e guia completo para transformar a MPU5 fake em um rádio mesh funcional
-              para airsoft, com LoRa e{' '}
-              <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>. Mensagens,
-              posição do time e comunicação sem internet e sem mensalidade, direto pelos apps{' '}
-              <ExternalLink href={externalLinks.meshtasticDownloads}>Meshtastic</ExternalLink>,{' '}
-              <ExternalLink href={externalLinks.atak}>ATAK</ExternalLink> ou{' '}
-              <ExternalLink href={externalLinks.itak}>iTAK</ExternalLink>.
+              Arquivos STL e guia de cortes para encaixar uma placa LoRa dentro da MPU5 fake, sem
+              perder o visual da réplica. Rodando{' '}
+              <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>, ela vira um
+              rádio mesh: mensagens e posição do time, sem internet e sem mensalidade.
             </Typography>
-
-            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 3 }}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => {
-                  const element = document.querySelector('#arquivos')
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }
-                }}
-                startIcon={<DownloadIcon size="md" />}
-                sx={{
-                  fontWeight: 600,
-                  textTransform: 'none',
-                  fontSize: '1rem',
-                  padding: '12px 24px',
-                  borderRadius: '10px',
-                  backgroundColor: theme.palette.primary.main,
-                  color: isDark ? '#140A02' : '#FFFFFF',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    backgroundColor: isDark ? '#FF9750' : '#E67E22',
-                  },
-                }}
-              >
-                Baixar arquivos STL
-              </Button>
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={() => {
-                  const element = document.querySelector('#apoie')
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }
-                }}
-                sx={{
-                  fontWeight: 600,
-                  textTransform: 'none',
-                  fontSize: '1rem',
-                  padding: '12px 24px',
-                  borderRadius: '10px',
-                  borderColor: theme.palette.primary.main,
-                  color: theme.palette.text.primary,
-                  cursor: 'pointer',
-                  '&:hover': {
-                    backgroundColor: isDark
-                      ? 'rgba(255, 138, 51, 0.1)'
-                      : 'rgba(255, 138, 51, 0.05)',
-                  },
-                }}
-              >
-                Como Contribuir
-              </Button>
-            </Box>
-
-            <Box
-              sx={{
-                display: 'flex',
-                gap: 2,
-                fontFamily: '"IBM Plex Mono", monospace',
-                fontSize: '13px',
-                color: isDark ? '#A3A796' : '#666666',
-              }}
-            >
-              <span>Licença [LICENÇA]</span>
-              <span>·</span>
-              <span>
-                Firmware <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>
-              </span>
-              <span>·</span>
-              <span>PT-BR</span>
-            </Box>
           </Box>
 
           {/* Right column: animated radio SVG */}
-          <Box sx={{ flex: { xs: '1 1 100%', md: '1 1 50%' }, minWidth: 0 }}>
+          <Box
+            sx={{
+              flex: { xs: '1 1 100%', md: '1 1 50%' },
+              minWidth: 0,
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}
+          >
             <Box
               sx={{
                 position: 'relative',
-                height: 450,
+                width: '100%',
+                maxWidth: { xs: '100%', md: 466 },
+                height: { xs: 'auto', md: 450 },
+                aspectRatio: { xs: '580 / 560', md: 'auto' },
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 580 560"
-                fill="none"
-                style={{ maxHeight: 450 }}
-              >
+              <svg width="100%" height="100%" viewBox="0 0 580 560" fill="none">
                 {/* Mesh network lines */}
                 <g
                   stroke={isDark ? '#3A4333' : '#D0D0D0'}
@@ -475,30 +402,49 @@ export const HeroSection: FC = () => {
         }}
       >
         <Container maxWidth="lg" sx={{ py: 4.5 }}>
-          <Box sx={{ display: 'flex', gap: 4, width: '100%' }}>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: 'repeat(2, 1fr)' },
+              rowGap: { xs: 3 },
+              columnGap: { xs: 2, sm: 3 },
+              [theme.breakpoints.up(1020)]: {
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                rowGap: 0,
+                columnGap: theme.spacing(4),
+              },
+            }}
+          >
             {[
-              { icon: ChipIcon, label: 'Placa LoRa', desc: 'ESP32-S3 + LoRa SX1262' },
+              {
+                icon: ChipIcon,
+                label: 'Placa LoRa',
+                desc: 'Você escolhe, compatível com Meshtastic',
+              },
               { icon: LoRaIcon, label: 'LoRa 915 MHz', desc: 'Faixa ISM usada no Brasil' },
               {
                 icon: MeshtasticIcon,
-                label: <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>,
+                label: 'Meshtastic',
                 desc: 'Firmware aberto, app Android e iOS',
               },
-              { icon: BoxIcon, label: '6 peças STL', desc: 'Impressão em PETG ou ASA' },
+              { icon: BoxIcon, label: 'Arquivos STL', desc: 'Prontos para fatiar' },
             ].map((item, idx) => {
               const IconComponent = item.icon
               return (
                 <Box
                   key={idx}
                   sx={{
-                    flex: 1,
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 1,
                     alignItems: 'center',
-                    paddingLeft: idx > 0 ? 3 : 0,
-                    borderLeft: idx > 0 ? `1px solid ${isDark ? '#2C3327' : '#D0D0D0'}` : 'none',
+                    paddingLeft: 0,
+                    borderLeft: 'none',
                     textAlign: 'center',
+                    [theme.breakpoints.up(1020)]: {
+                      paddingLeft: idx > 0 ? theme.spacing(3) : 0,
+                      borderLeft: idx > 0 ? `1px solid ${isDark ? '#2C3327' : '#D0D0D0'}` : 'none',
+                    },
                   }}
                 >
                   <Box
@@ -511,14 +457,15 @@ export const HeroSection: FC = () => {
                     }}
                   >
                     <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
-                      <IconComponent size="lg" />
+                      <IconComponent size="md" />
                     </Box>
                     <Typography
                       sx={{
                         fontFamily: '"Chakra Petch", sans-serif',
                         fontWeight: 700,
-                        fontSize: '1.5rem',
+                        fontSize: { xs: '1.05rem', sm: '1.25rem' },
                         color: theme.palette.text.primary,
+                        [theme.breakpoints.up(1020)]: { fontSize: '1.5rem' },
                       }}
                     >
                       {item.label}

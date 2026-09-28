@@ -18,7 +18,7 @@ export const FilesSection: FC = () => {
       <SectionTitle
         label="04 — ARQUIVOS"
         title="Todas as peças, prontas para fatiar."
-        description="Escolha um grupo de peças, confira as configurações recomendadas de impressão e baixe o arquivo, peça por peça ou o pacote completo."
+        description="Escolha um grupo de peças e baixe o arquivo, peça por peça ou o pacote completo. Preenchimento, suporte e paredes de cada peça aparecem ao selecionar — são as únicas recomendações de impressão deste projeto; impressora, filamento e demais configurações ficam por sua conta."
         maxWidth="640px"
       />
 

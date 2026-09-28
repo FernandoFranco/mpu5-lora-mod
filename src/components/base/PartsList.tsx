@@ -74,16 +74,13 @@ export const PartsList: FC<PartsListProps> = ({ parts, selectedId, onSelect }) =
           <Typography sx={{ fontWeight: 600, mb: 1, fontSize: '14px' }}>Especificações</Typography>
           <Stack spacing={0.5} sx={{ fontSize: '12px' }}>
             <Typography>
-              Material: <strong>{selectedPart.mat}</strong>
-            </Typography>
-            <Typography>
-              Camada: <strong>{selectedPart.layer}</strong>
-            </Typography>
-            <Typography>
               Preenchimento: <strong>{selectedPart.infill}</strong>
             </Typography>
             <Typography>
               Suporte: <strong>{selectedPart.support}</strong>
+            </Typography>
+            <Typography>
+              Paredes: <strong>{selectedPart.walls}</strong>
             </Typography>
             <Typography>
               Quantidade: <strong>{selectedPart.qty}</strong>

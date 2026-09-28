@@ -1,40 +1,12 @@
 import { FC } from 'react'
 import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, Link } from '@mui/material'
 import { useTheme } from '@mui/material'
-import { ExternalLink, SectionContainer, SectionTitle, TwoColumnSection } from '@/components/base'
-import { externalLinks } from '@/data'
+import { SectionContainer, SectionTitle, TwoColumnSection } from '@/components/base'
 
 export const FAQSection: FC = () => {
   const theme = useTheme()
 
   const faqs = [
-    {
-      id: 'outros-radios',
-      question: (
-        <>
-          Funciona com rádios{' '}
-          <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink> que não são MPU5?
-        </>
-      ),
-      answer: (
-        <>
-          Sim. Qualquer nó <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>{' '}
-          na mesma região e canal conversa com o seu, como T-Beam, RAK Wireless e outras placas
-          compatíveis.
-        </>
-      ),
-    },
-    {
-      id: 'programar',
-      question: 'Preciso saber programar?',
-      answer: 'Não. O firmware é gravado pelo navegador e toda a configuração é feita no app.',
-    },
-    {
-      id: 'alcance',
-      question: 'Qual o alcance?',
-      answer:
-        'Depende muito do terreno, da vegetação e da antena. Cada rádio a mais no time funciona como repetidor e amplia a cobertura.',
-    },
     {
       id: 'venda',
       question: 'Posso vender montagens prontas?',
