@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import {
   Box,
   Grid,
@@ -12,11 +13,10 @@ import {
   Stack,
 } from '@mui/material'
 import { useTheme } from '@mui/material'
-import { SectionContainer } from './base/SectionContainer'
-import { SectionTitle } from './base/SectionTitle'
-import { StepList } from './base/StepList'
+import { SectionContainer, SectionTitle, StepList } from '@/components/base'
+import type { Step } from '@/types'
 
-export function AssemblySection() {
+export const AssemblySection: FC = () => {
   const theme = useTheme()
 
   // BOM data
@@ -31,7 +31,7 @@ export function AssemblySection() {
   const tools = ['Tesoura', 'Faca X-Acto', 'Luvas', 'Óculos']
 
   // Steps
-  const steps = [
+  const steps: Step[] = [
     {
       number: 1,
       title: 'Imprimir Peças',
@@ -137,7 +137,7 @@ export function AssemblySection() {
 
       <Grid container spacing={3}>
         {/* Sidebar BOM - 4/12 */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           {/* BOM Tabela */}
           <Typography sx={{ fontWeight: 600, mb: 2, fontSize: '16px' }}>
             BOM (Lista de Materiais)
@@ -175,7 +175,7 @@ export function AssemblySection() {
         </Grid>
 
         {/* StepList - 7/12 */}
-        <Grid item xs={12} md={7}>
+        <Grid size={{ xs: 12, md: 7 }}>
           <StepList steps={steps} />
         </Grid>
       </Grid>

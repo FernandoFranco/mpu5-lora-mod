@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import {
   AppBar,
   Box,
@@ -14,7 +14,6 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
-
 import {
   CloseIcon,
   GitHubIconCustom,
@@ -24,6 +23,7 @@ import {
   MoonIcon,
   SunIcon,
 } from '@/icons'
+import type { NavbarProps } from '@/types'
 
 const navLinks = [
   { label: 'Sobre', href: '#sobre' },
@@ -34,12 +34,12 @@ const navLinks = [
   { label: 'FAQ', href: '#faq' },
 ]
 
-export default function Navbar({ onToggleTheme, isDark }) {
+export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
-  const handleNavigate = href => {
+  const handleNavigate = (href: string): void => {
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })

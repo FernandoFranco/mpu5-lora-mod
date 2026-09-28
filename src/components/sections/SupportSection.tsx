@@ -1,16 +1,15 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { Box, Button, Grid, Typography, Card, CardContent, Stack, Divider } from '@mui/material'
 import { useTheme } from '@mui/material'
-import { SectionContainer } from './base/SectionContainer'
-import { SectionTitle } from './base/SectionTitle'
+import { SectionContainer, SectionTitle } from '@/components/base'
 
-export function SupportSection() {
+export const SupportSection: FC = () => {
   const theme = useTheme()
   const [copied, setCopied] = useState(false)
 
   const pixKey = 'seu@email.com'
 
-  const handleCopyPixKey = () => {
+  const handleCopyPixKey = (): void => {
     navigator.clipboard.writeText(pixKey)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
@@ -44,7 +43,7 @@ export function SupportSection() {
 
       <Grid container spacing={3}>
         {/* Card Pix */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card
             sx={{
               height: '100%',
@@ -100,7 +99,7 @@ export function SupportSection() {
         </Grid>
 
         {/* Card GitHub Sponsors */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography
@@ -134,7 +133,7 @@ export function SupportSection() {
         </Grid>
 
         {/* Card Contribua Sem Gastar */}
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography

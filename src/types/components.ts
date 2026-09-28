@@ -60,3 +60,13 @@ export interface PartsListProps {
   selectedId?: string | null
   onSelect: (id: string) => void
 }
+
+export interface NavbarProps {
+  onToggleTheme: () => void
+  isDark: boolean
+}
+
+export interface HomeProps {
+  onToggleTheme: () => void
+  isDark: boolean
+}

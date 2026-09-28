@@ -1,8 +1,9 @@
+import { FC } from 'react'
 import { Box, Button, Container, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { BoxIcon, ChipIcon, DownloadIcon, LoRaIcon, MeshtasticIcon } from '@/icons'
 
-export default function HeroSection() {
+export const HeroSection: FC = () => {
   const theme = useTheme()
   const isDark = theme.palette.mode === 'dark'
 

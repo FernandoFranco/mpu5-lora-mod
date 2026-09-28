@@ -1,11 +1,9 @@
+import { FC } from 'react'
 import { Typography } from '@mui/material'
+import { FeatureGrid, SectionContainer, SectionTitle, TwoColumnSection } from '@/components/base'
 import { Lock, MapPin, MeshChat, RadioDevice, Remix, WifiOff } from '@/icons'
-import { FeatureGrid } from './base/FeatureGrid'
-import { SectionContainer } from './base/SectionContainer'
-import { SectionTitle } from './base/SectionTitle'
-import { TwoColumnSection } from './base/TwoColumnSection'
 
-export function AboutSection() {
+export const AboutSection: FC = () => {
   const features = [
     {
       icon: MeshChat,

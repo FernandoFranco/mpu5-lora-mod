@@ -1,9 +1,9 @@
+import { FC } from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
-import { SectionContainer } from './base/SectionContainer'
-import { SectionTitle } from './base/SectionTitle'
+import { SectionContainer, SectionTitle } from '@/components/base'
 
-export function HowItWorksSection() {
+export const HowItWorksSection: FC = () => {
   const theme = useTheme()
 
   // Diagrama SVG simples

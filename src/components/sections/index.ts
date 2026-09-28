@@ -1,0 +1,7 @@
+export { AboutSection } from './AboutSection'
+export { AssemblySection } from './AssemblySection'
+export { FAQSection } from './FAQSection'
+export { FilesSection } from './FilesSection'
+export { HeroSection } from './HeroSection'
+export { HowItWorksSection } from './HowItWorksSection'
+export { SupportSection } from './SupportSection'

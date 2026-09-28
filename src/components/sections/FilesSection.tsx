@@ -1,14 +1,12 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { Box, Button, ButtonGroup, Grid, Typography } from '@mui/material'
-import { stlGroups } from '../data/stlGroups'
-import { PartsList } from './base/PartsList'
-import { SectionContainer } from './base/SectionContainer'
-import { SectionTitle } from './base/SectionTitle'
-// import { STLGroupViewer } from './base/STLGroupViewer'
+import { PartsList, SectionContainer, SectionTitle } from '@/components/base'
+import { stlGroups } from '@/data'
+// import { STLGroupViewer } from '@/components/base'
 
-export function FilesSection() {
+export const FilesSection: FC = () => {
   const [selectedGroupId, setSelectedGroupId] = useState('heltec-v4')
-  const [selectedPartId, setSelectedPartId] = useState(null)
+  const [selectedPartId, setSelectedPartId] = useState<string | null>(null)
 
   const selectedGroup = stlGroups.find(g => g.id === selectedGroupId)
 
@@ -61,7 +59,7 @@ export function FilesSection() {
       {selectedGroup && (
         <Grid container spacing={3}>
           {/* STLGroupViewer - 7/12 */}
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Box
               sx={{
                 width: '100%',
@@ -79,7 +77,7 @@ export function FilesSection() {
           </Grid>
 
           {/* PartsList - 5/12 */}
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <PartsList
               parts={selectedGroup.parts}
               selectedId={partToHighlight}

@@ -1,7 +1,8 @@
+import { FC } from 'react'
 import { Box, Container, Typography, Link, useTheme } from '@mui/material'
 import { GitHubIconCustom, LoRaIcon } from '@/icons'
 
-export default function Footer() {
+export const Footer: FC = () => {
   const theme = useTheme()
   return (
     <Box

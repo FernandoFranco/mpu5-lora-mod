@@ -9,5 +9,7 @@ export type {
   TwoColumnSectionProps,
   STLGroupViewerProps,
   PartsListProps,
+  NavbarProps,
+  HomeProps,
 } from './components'
 export type { STLPart, STLGroup } from './data'

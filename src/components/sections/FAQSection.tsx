@@ -1,11 +1,10 @@
+import { FC } from 'react'
 import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 import { useTheme } from '@mui/material'
+import { SectionContainer, SectionTitle, TwoColumnSection } from '@/components/base'
 import { InfoCircle } from '@/icons'
-import { SectionContainer } from './base/SectionContainer'
-import { SectionTitle } from './base/SectionTitle'
-import { TwoColumnSection } from './base/TwoColumnSection'
 
-export function FAQSection() {
+export const FAQSection: FC = () => {
   const theme = useTheme()
 
   const faqs = [
