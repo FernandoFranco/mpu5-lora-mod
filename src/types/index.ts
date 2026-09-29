@@ -10,7 +10,10 @@ export type {
   STLGroupViewerProps,
   PartsListProps,
   NavbarProps,
-  HomeProps,
+  LegalDocumentProps,
+  CookieConsentBannerProps,
+  FooterProps,
   ExternalLinkProps,
 } from './components'
 export type { STLPart, STLGroup } from './data'
+export type { LegalSection, LegalDocumentContent, LegalResources } from './legal'

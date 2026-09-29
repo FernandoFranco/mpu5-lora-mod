@@ -66,9 +66,16 @@ export interface NavbarProps {
   isDark: boolean
 }
 
-export interface HomeProps {
-  onToggleTheme: () => void
-  isDark: boolean
+export interface LegalDocumentProps {
+  documentKey: 'terms' | 'privacy'
+}
+
+export interface CookieConsentBannerProps {
+  reopenSignal: number
+}
+
+export interface FooterProps {
+  onOpenCookiePreferences: () => void
 }
 
 export interface ExternalLinkProps {

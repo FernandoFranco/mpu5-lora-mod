@@ -27,7 +27,7 @@ export const AboutSection: FC = () => {
     {
       icon: WifiOff,
       title: 'Zero infraestrutura',
-      description: 'Funciona no meio do mato: não depende de operadora, Wi-Fi ou internet.',
+      description: 'Funciona onde a rede não chega, sem depender de operadora, Wi-Fi ou internet.',
     },
     {
       icon: Lock,

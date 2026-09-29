@@ -108,7 +108,7 @@ export const HeroSection: FC = () => {
               Arquivos STL e guia de cortes para encaixar uma placa LoRa dentro da MPU5 fake, sem
               perder o visual da réplica. Rodando{' '}
               <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>, ela vira um
-              rádio mesh: mensagens e posição do time, sem internet e sem mensalidade.
+              rádio mesh: mensagens e posição do time, sem internet.
             </Typography>
           </Box>
 

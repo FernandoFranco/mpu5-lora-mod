@@ -9,7 +9,7 @@ export const SupportSection: FC = () => {
   const isDark = theme.palette.mode === 'dark'
   const [copied, setCopied] = useState(false)
 
-  const pixKey = 'atr.franco@gmail.com'
+  const pixKey = '601e3f50-b8fb-4623-a4c5-19887de95e06'
 
   const handleCopyPixKey = (): void => {
     navigator.clipboard.writeText(pixKey)
@@ -28,7 +28,7 @@ export const SupportSection: FC = () => {
       <SectionTitle
         label="01 — APOIE O PROJETO"
         title="Gratuito para sempre. Mantido por quem usa."
-        description="O MPU5 LoRa Mod não tem patrocínio nem fins lucrativos. Qualquer valor ajuda: a doação cobre filamento, placas para testes e o tempo dedicado às próximas versões."
+        description="O MPU5 LoRa Mod não tem patrocínio nem fins lucrativos. Qualquer valor ajuda a cobrir filamento, placas para testes e o tempo dedicado às próximas versões."
         maxWidth="700px"
       />
 

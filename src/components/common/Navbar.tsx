@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import {
   AppBar,
   Box,
@@ -13,6 +13,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { CloseIcon, LoRaIcon, MenuIcon, MoonIcon, StarIcon, SunIcon } from '@/icons'
 import type { NavbarProps } from '@/types'
 
@@ -28,13 +29,33 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const location = useLocation()
+  const navigate = useNavigate()
+  const pendingScrollRef = useRef<string | null>(null)
 
-  const handleNavigate = (href: string): void => {
+  const scrollToSection = (href: string): void => {
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
+
+  const handleNavigate = (href: string): void => {
+    if (location.pathname !== '/') {
+      pendingScrollRef.current = href
+      navigate('/')
+      return
+    }
+    scrollToSection(href)
+  }
+
+  useEffect(() => {
+    if (location.pathname === '/' && pendingScrollRef.current) {
+      const href = pendingScrollRef.current
+      pendingScrollRef.current = null
+      requestAnimationFrame(() => scrollToSection(href))
+    }
+  }, [location.pathname])
 
   return (
     <AppBar

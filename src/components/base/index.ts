@@ -1,6 +1,7 @@
 export { ExternalLink } from './ExternalLink'
 export { FeatureCard } from './FeatureCard'
 export { FeatureGrid } from './FeatureGrid'
+export { LegalDocument } from './LegalDocument'
 export { PartsList } from './PartsList'
 export { SectionContainer } from './SectionContainer'
 export { SectionTitle } from './SectionTitle'

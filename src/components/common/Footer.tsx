@@ -1,8 +1,10 @@
 import { FC } from 'react'
 import { Box, Container, Typography, Link, useTheme } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 import { GitHubIconCustom, LoRaIcon } from '@/icons'
+import type { FooterProps } from '@/types'
 
-export const Footer: FC = () => {
+export const Footer: FC<FooterProps> = ({ onOpenCookiePreferences }) => {
   const theme = useTheme()
   return (
     <Box
@@ -78,7 +80,8 @@ export const Footer: FC = () => {
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
               <Link
-                href="#"
+                component={RouterLink}
+                to="/terms"
                 sx={{
                   color: theme.palette.text.secondary,
                   textDecoration: 'none',
@@ -89,7 +92,19 @@ export const Footer: FC = () => {
                 Termos de uso
               </Link>
               <Link
-                href="https://github.com/your-user/mpu5/blob/main/LICENSE"
+                component={RouterLink}
+                to="/privacy"
+                sx={{
+                  color: theme.palette.text.secondary,
+                  textDecoration: 'none',
+                  fontSize: '0.9rem',
+                  '&:hover': { color: theme.palette.primary.main },
+                }}
+              >
+                Privacidade
+              </Link>
+              <Link
+                href="https://github.com/FernandoHAFranco/mpu5/blob/main/LICENSE"
                 target="_blank"
                 rel="noopener"
                 sx={{
@@ -102,7 +117,7 @@ export const Footer: FC = () => {
                 Licença (CC BY-NC-SA 4.0)
               </Link>
               <Link
-                href="https://github.com/your-user/mpu5/issues/new"
+                href="https://github.com/FernandoHAFranco/mpu5/issues/new"
                 target="_blank"
                 rel="noopener"
                 sx={{
@@ -113,6 +128,19 @@ export const Footer: FC = () => {
                 }}
               >
                 Contato
+              </Link>
+              <Link
+                component="button"
+                onClick={onOpenCookiePreferences}
+                sx={{
+                  color: theme.palette.text.secondary,
+                  textDecoration: 'none',
+                  fontSize: '0.9rem',
+                  textAlign: 'left',
+                  '&:hover': { color: theme.palette.primary.main },
+                }}
+              >
+                Preferências de cookies
               </Link>
             </Box>
           </Box>
