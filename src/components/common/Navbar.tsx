@@ -14,7 +14,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { CloseIcon, LoRaIcon, MenuIcon, MoonIcon, StarIcon, SunIcon } from '@/icons'
+import { CloseIcon, GitHubIconCustom, LoRaIcon, MenuIcon, MoonIcon, SunIcon } from '@/icons'
 import type { NavbarProps } from '@/types'
 
 const navLinks = [
@@ -49,6 +49,14 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
     scrollToSection(href)
   }
 
+  const handleGoHome = (): void => {
+    if (location.pathname !== '/') {
+      navigate('/')
+      return
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   useEffect(() => {
     if (location.pathname === '/' && pendingScrollRef.current) {
       const href = pendingScrollRef.current
@@ -79,6 +87,13 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
         }}
       >
         <Box
+          role="link"
+          tabIndex={0}
+          aria-label="Voltar ao início"
+          onClick={handleGoHome}
+          onKeyDown={e => {
+            if (e.key === 'Enter') handleGoHome()
+          }}
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -86,6 +101,7 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
             fontSize: '18px',
             fontWeight: 700,
             flex: 1,
+            cursor: 'pointer',
           }}
         >
           <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
@@ -146,23 +162,21 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
         )}
 
         {!isMobile && (
-          <Button
+          <IconButton
             component="a"
-            href="https://github.com/your-user/mpu5"
+            href="https://github.com/FernandoHAFranco/mpu5"
             target="_blank"
             rel="noopener noreferrer"
-            variant="outlined"
-            startIcon={<StarIcon size="sm" />}
+            aria-label="GitHub"
+            size="small"
             sx={{
-              textTransform: 'none',
-              borderColor: theme.palette.mode === 'dark' ? '#343C2E' : '#E0E0E0',
+              p: 0.5,
               color: theme.palette.text.primary,
-              fontSize: '14px',
-              fontWeight: 500,
+              '&:hover': { color: theme.palette.primary.main },
             }}
           >
-            Star no GitHub
-          </Button>
+            <GitHubIconCustom size="md" />
+          </IconButton>
         )}
 
         <IconButton

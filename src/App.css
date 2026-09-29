@@ -13,3 +13,8 @@ body,
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+/* Compensa a AppBar sticky (64px + 1px de borda) ao navegar por âncoras */
+[id] {
+  scroll-margin-top: 72px;
+}
