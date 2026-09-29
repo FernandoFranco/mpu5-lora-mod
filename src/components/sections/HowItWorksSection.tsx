@@ -134,7 +134,7 @@ export const HowItWorksSection: FC = () => {
       <SectionTitle
         label="03 — COMO FUNCIONA"
         title="Celular na mão, rádio no loadout."
-        description="O celular é a interface; a MPU5 é o nó mesh. Entre os nós, o LoRa leva mensagens por longas distâncias com baixíssimo consumo de energia."
+        description="O celular é a interface enquanto o MPU5 é o nó mesh. Entre os nós, o LoRa leva mensagens por longas distâncias com baixíssimo consumo de energia."
         maxWidth="680px"
       />
 

@@ -16,13 +16,13 @@ export const AboutSection: FC = () => {
       icon: MeshChat,
       title: 'Chat em rede mesh',
       description:
-        'Mensagens de texto por canal do time ou diretas, retransmitidas de rádio em rádio até o destino.',
+        'Mensagens de texto por canal do time ou diretas, retransmitidas de LoRa em LoRa até o destino.',
     },
     {
       icon: MapPin,
       title: 'Posição do time no mapa',
       description:
-        'Com GPS no celular ou módulo opcional, cada nó compartilha sua posição no mapa do app.',
+        'Com GPS no celular ou usando um módulo opcional direto no LoRa, cada nó compartilha sua posição no mapa do app.',
     },
     {
       icon: WifiOff,
@@ -38,7 +38,7 @@ export const AboutSection: FC = () => {
     {
       icon: Mpu5Icon,
       title: 'Visual preservado',
-      description: 'As peças ficam escondidas dentro da carcaça. Por fora, continua sendo o MPU5.',
+      description: 'As peças ficam escondidas dentro da carcaça. Por fora, continua sendo um MPU5.',
     },
     {
       icon: Remix,
@@ -51,7 +51,7 @@ export const AboutSection: FC = () => {
   const leftContent = (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.25 }}>
       <Typography sx={{ fontSize: '17px', lineHeight: 1.7, color: 'text.secondary' }}>
-        A réplica de MPU5 é um dos acessórios mais populares do airsoft milsim, mas é só uma casca.
+        A réplica de MPU5 é um acessório frequentemente usado no airsoft MilSim, mas é só uma casca.
         Este projeto aproveita esse volume vazio para instalar uma{' '}
         <Typography component="b" sx={{ fontWeight: 600, color: 'text.primary' }}>
           placa LoRa
@@ -63,9 +63,10 @@ export const AboutSection: FC = () => {
         , transformando o visual em função.
       </Typography>
       <Typography sx={{ fontSize: '17px', lineHeight: 1.7, color: 'text.secondary' }}>
-        Cada operador leva um nó. Os rádios formam uma rede mesh entre si: se um colega está fora de
-        alcance, a mensagem pula pelos outros até chegar. Você conversa e acompanha o time pelo
-        celular, via Bluetooth, sem chip, sem sinal de operadora, sem internet, direto pelos apps{' '}
+        Cada operador leva um. Os LoRa formam uma rede mesh entre si, assim se um colega está fora
+        de alcance, a mensagem pula pelos outros até chegar em quem precisa. Você conversa e
+        acompanha o time pelo celular, via Bluetooth, sem chip, sem sinal de operadora, sem
+        internet, direto pelos apps{' '}
         <ExternalLink href={externalLinks.meshtasticDownloads}>Meshtastic</ExternalLink>,{' '}
         <ExternalLink href={externalLinks.atak}>ATAK</ExternalLink> ou{' '}
         <ExternalLink href={externalLinks.itak}>iTAK</ExternalLink>.
