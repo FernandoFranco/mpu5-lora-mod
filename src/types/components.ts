@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import type { STLPart } from './data'
+import type { STLGroup, STLPart } from './data'
 import type { IconProps } from './icons'
 
 export interface FeatureCardProps {
@@ -50,14 +50,34 @@ export interface TwoColumnSectionProps {
   reverseOnMobile?: boolean
 }
 
+export interface RotationNudge {
+  id: number
+  delta: number
+}
+
 export interface STLGroupViewerProps {
-  parts: STLPart[]
-  highlightPartId?: string | null
+  file: string
+  color: string
+  autoRotate?: boolean
+  nudge?: RotationNudge | null
+  onAngleChange?: (degrees: number) => void
 }
 
 export interface PartsListProps {
   parts: STLPart[]
   selectedId?: string | null
+  onSelect: (id: string) => void
+}
+
+export interface PartPreviewPanelProps {
+  part: STLPart
+  index: number
+  total: number
+}
+
+export interface GroupSelectProps {
+  groups: STLGroup[]
+  selectedId: string
   onSelect: (id: string) => void
 }
 

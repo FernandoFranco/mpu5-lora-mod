@@ -2,49 +2,6 @@ import type { STLGroup } from '@/types'
 
 export const stlGroups: STLGroup[] = [
   {
-    id: 'heltec-v4',
-    name: 'Heltec V4',
-    description: 'Case and components for LoRa Heltec V4 module',
-    parts: [
-      {
-        id: 'heltec-case',
-        name: 'Heltec V4 - Case',
-        file: '/models/stl/devices/heltec-v4/healtec-v4-case.stl',
-        infill: '20%',
-        support: 'No',
-        walls: '3',
-        qty: 1,
-      },
-      {
-        id: 'heltec-cover',
-        name: 'Heltec V4 - Cover',
-        file: '/models/stl/devices/heltec-v4/healtec-v4-cover.stl',
-        infill: '20%',
-        support: 'No',
-        walls: '3',
-        qty: 1,
-      },
-      {
-        id: 'heltec-button',
-        name: 'Heltec V4 - Button',
-        file: '/models/stl/devices/heltec-v4/healtec-v4-button.stl',
-        infill: '20%',
-        support: 'No',
-        walls: '3',
-        qty: 1,
-      },
-      {
-        id: 'mpu5-mod-0',
-        name: 'MPU5 Top - Heltec V4 Mod',
-        file: '/models/stl/devices/heltec-v4/mods/mpu5-top-healtec-v4-mod-0.stl',
-        infill: '20%',
-        support: 'No',
-        walls: '3',
-        qty: 1,
-      },
-    ],
-  },
-  {
     id: 'mpu5-top',
     name: 'MPU5 Top',
     description: 'Upper enclosure components for MPU5',
@@ -52,6 +9,7 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'mpu5-top-case',
         name: 'MPU5 Top - Case',
+        description: 'Corpo da parte superior do MPU5, que recebe o módulo LoRa e as demais peças.',
         file: '/models/stl/top/mpu5-top-case.stl',
         infill: '20%',
         support: 'No',
@@ -61,6 +19,7 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'mpu5-top-cover',
         name: 'MPU5 Top - Cover',
+        description: 'Tampa que fecha a parte superior depois da montagem interna.',
         file: '/models/stl/top/mpu5-top-cover.stl',
         infill: '20%',
         support: 'No',
@@ -70,6 +29,7 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'mpu5-top-latch',
         name: 'MPU5 Top - Latch',
+        description: 'Trava que mantém a parte superior firmemente fechada.',
         file: '/models/stl/top/mpu5-top-latch.stl',
         infill: '20%',
         support: 'No',
@@ -86,6 +46,7 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'mpu5-bottom-case',
         name: 'MPU5 Bottom - Case',
+        description: 'Corpo da parte inferior do MPU5.',
         file: '/models/stl/bottom/mpu5-bottom-case.stl',
         infill: '20%',
         support: 'No',
@@ -95,6 +56,7 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'mpu5-bottom-cover',
         name: 'MPU5 Bottom - Cover',
+        description: 'Tampa que fecha a parte inferior do MPU5.',
         file: '/models/stl/bottom/mpu5-bottom-cover.stl',
         infill: '20%',
         support: 'No',
@@ -104,6 +66,7 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'mpu5-bottom-latch',
         name: 'MPU5 Bottom - Latch',
+        description: 'Trava que mantém a parte inferior firmemente fechada.',
         file: '/models/stl/bottom/mpu5-bottom-latch.stl',
         infill: '20%',
         support: 'No',
@@ -113,6 +76,7 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'mpu5-connector-guide',
         name: 'MPU5 Bottom - Connector Guide',
+        description: 'Guia que posiciona o conector na parte inferior do MPU5.',
         file: '/models/stl/bottom/mpu5-bottom-connector-guide.stl',
         infill: '20%',
         support: 'No',
@@ -129,7 +93,55 @@ export const stlGroups: STLGroup[] = [
       {
         id: 'fiber-guide',
         name: 'MPU5 - Fiber Guide',
+        description: 'Peça de referência usada como guia durante a montagem.',
         file: '/models/stl/guides/mpu5-fiber-guide.stl',
+        infill: '20%',
+        support: 'No',
+        walls: '3',
+        qty: 1,
+      },
+    ],
+  },
+  {
+    id: 'heltec-v4',
+    name: 'Heltec V4',
+    description: 'Case and components for LoRa Heltec V4 module',
+    parts: [
+      {
+        id: 'heltec-case',
+        name: 'Heltec V4 - Case',
+        description: 'Caixa que abriga a placa Heltec V4 e protege os componentes do módulo.',
+        file: '/models/stl/devices/heltec-v4/healtec-v4-case.stl',
+        infill: '20%',
+        support: 'No',
+        walls: '3',
+        qty: 1,
+      },
+      {
+        id: 'heltec-cover',
+        name: 'Heltec V4 - Cover',
+        description: 'Tampa que fecha a caixa da Heltec V4 e mantém a placa firme no lugar.',
+        file: '/models/stl/devices/heltec-v4/healtec-v4-cover.stl',
+        infill: '20%',
+        support: 'No',
+        walls: '3',
+        qty: 1,
+      },
+      {
+        id: 'heltec-button',
+        name: 'Heltec V4 - Button',
+        description: 'Botão impresso que transmite o toque ao botão físico da placa Heltec V4.',
+        file: '/models/stl/devices/heltec-v4/healtec-v4-button.stl',
+        infill: '20%',
+        support: 'No',
+        walls: '3',
+        qty: 1,
+      },
+      {
+        id: 'mpu5-mod-0',
+        name: 'MPU5 Top - Heltec V4 Mod',
+        description: 'Parte superior do MPU5 adaptada para receber o módulo Heltec V4.',
+        file: '/models/stl/devices/heltec-v4/mods/mpu5-top-healtec-v4-mod-0.stl',
         infill: '20%',
         support: 'No',
         walls: '3',

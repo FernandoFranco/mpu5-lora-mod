@@ -1,93 +1,86 @@
 import { FC } from 'react'
-import { Box, Button, Typography, Stack } from '@mui/material'
-import { useTheme } from '@mui/material'
+import { Box, ButtonBase, Stack, Typography } from '@mui/material'
+import { usePartThumbnails } from '@/hooks'
 import { ChevronRight } from '@/icons'
 import type { PartsListProps } from '@/types'
+import { fileName, PREVIEW_BACKGROUND } from '@/utils'
 
 export const PartsList: FC<PartsListProps> = ({ parts, selectedId, onSelect }) => {
-  const theme = useTheme()
-  const selectedPart = parts.find(p => p.id === selectedId)
+  const thumbnails = usePartThumbnails(parts)
 
   return (
-    <Box
-      sx={{
-        height: 500,
-        display: 'flex',
-        flexDirection: 'column',
-        borderLeft: `1px solid ${theme.palette.mode === 'dark' ? '#333' : '#ddd'}`,
-      }}
-    >
-      {/* Lista de partes (scrollável) */}
-      <Box
-        sx={{
-          flex: 1,
-          overflowY: 'auto',
-          borderBottom: `1px solid ${theme.palette.mode === 'dark' ? '#333' : '#ddd'}`,
-        }}
-      >
-        <Stack spacing={1} sx={{ p: 2 }}>
-          {parts.map((part, idx) => (
-            <Button
-              key={part.id}
-              onClick={() => onSelect(part.id)}
+    <Stack spacing={1.5}>
+      {parts.map((part, idx) => {
+        const active = selectedId === part.id
+        const thumb = thumbnails[part.id]
+
+        return (
+          <ButtonBase
+            key={part.id}
+            onClick={() => onSelect(part.id)}
+            aria-pressed={active}
+            sx={{
+              width: '100%',
+              justifyContent: 'flex-start',
+              textAlign: 'left',
+              gap: 2,
+              p: 1.5,
+              borderRadius: '14px',
+              border: '1px solid',
+              borderColor: active ? 'primary.main' : 'divider',
+              backgroundColor: active ? 'rgba(255,138,51,0.08)' : 'background.paper',
+              transition: 'border-color 0.2s, background-color 0.2s',
+              '&:hover': { borderColor: 'primary.main' },
+            }}
+          >
+            <Box
               sx={{
-                justifyContent: 'flex-start',
-                textAlign: 'left',
-                padding: 2,
-                borderRadius: 1,
-                backgroundColor:
-                  selectedId === part.id
-                    ? theme.palette.mode === 'dark'
-                      ? '#222'
-                      : '#f0f0f0'
-                    : 'transparent',
-                color: 'text.primary',
-                border: `1px solid ${
-                  selectedId === part.id
-                    ? theme.palette.primary.main
-                    : theme.palette.mode === 'dark'
-                      ? '#333'
-                      : '#ddd'
-                }`,
-                '&:hover': {
-                  backgroundColor: theme.palette.mode === 'dark' ? '#1a1a1a' : '#f9f9f9',
-                },
+                width: 72,
+                height: 72,
+                flexShrink: 0,
+                borderRadius: '10px',
+                backgroundColor: PREVIEW_BACKGROUND,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              <Box sx={{ flex: 1 }}>
-                <Typography sx={{ fontWeight: 600, fontSize: '14px' }}>
-                  {idx + 1}. {part.name}
-                </Typography>
-                <Typography sx={{ fontSize: '12px', color: 'text.secondary' }}>
-                  {part.file}
-                </Typography>
-              </Box>
+              {thumb && (
+                <img src={thumb} alt="" width={64} height={64} style={{ objectFit: 'contain' }} />
+              )}
+            </Box>
+            <Box sx={{ flex: 1, minWidth: 0 }}>
+              <Typography
+                sx={{
+                  fontFamily: 'IBM Plex Mono, monospace',
+                  fontSize: '12px',
+                  color: active ? 'primary.main' : 'text.secondary',
+                }}
+              >
+                {String(idx + 1).padStart(2, '0')}
+              </Typography>
+              <Typography
+                sx={{ fontFamily: 'Chakra Petch, sans-serif', fontWeight: 700, fontSize: '16px' }}
+              >
+                {part.name}
+              </Typography>
+              <Typography
+                noWrap
+                sx={{
+                  fontFamily: 'IBM Plex Mono, monospace',
+                  fontSize: '12px',
+                  color: 'text.secondary',
+                }}
+              >
+                {fileName(part.file)}
+              </Typography>
+            </Box>
+            <Box sx={{ color: active ? 'primary.main' : 'text.secondary', display: 'flex' }}>
               <ChevronRight size="sm" />
-            </Button>
-          ))}
-        </Stack>
-      </Box>
-
-      {/* Specs panel */}
-      {selectedPart && (
-        <Box sx={{ p: 2, backgroundColor: theme.palette.mode === 'dark' ? '#111' : '#f9f9f9' }}>
-          <Typography sx={{ fontWeight: 600, mb: 1, fontSize: '14px' }}>Especificações</Typography>
-          <Stack spacing={0.5} sx={{ fontSize: '12px' }}>
-            <Typography>
-              Preenchimento: <strong>{selectedPart.infill}</strong>
-            </Typography>
-            <Typography>
-              Suporte: <strong>{selectedPart.support}</strong>
-            </Typography>
-            <Typography>
-              Paredes: <strong>{selectedPart.walls}</strong>
-            </Typography>
-            <Typography>
-              Quantidade: <strong>{selectedPart.qty}</strong>
-            </Typography>
-          </Stack>
-        </Box>
-      )}
-    </Box>
+            </Box>
+          </ButtonBase>
+        )
+      })}
+    </Stack>
   )
 }
