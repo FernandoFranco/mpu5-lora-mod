@@ -78,7 +78,7 @@ export const HeroSection: FC = () => {
                     mr: 0.5,
                   }}
                 />
-                OPEN SOURCE HARDWARE · v[0.1]
+                OPEN SOURCE · v[0.1]
               </Box>
             </Box>
 
