@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_GA_MEASUREMENT_ID?: string
+  readonly VITE_PIX_CODE?: string
 }
 
 interface ImportMeta {

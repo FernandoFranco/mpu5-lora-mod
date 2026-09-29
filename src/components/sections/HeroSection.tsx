@@ -108,7 +108,7 @@ export const HeroSection: FC = () => {
               Arquivos STL e guia de cortes para encaixar uma placa LoRa dentro da MPU5 fake, sem
               perder o visual da réplica. Rodando{' '}
               <ExternalLink href={externalLinks.meshtastic}>Meshtastic</ExternalLink>, ela vira um
-              rádio mesh: mensagens e posição do time, sem internet.
+              nó mesh (envia mensagens e posição do time, sem internet).
             </Typography>
           </Box>
 
@@ -419,7 +419,12 @@ export const HeroSection: FC = () => {
               {
                 icon: ChipIcon,
                 label: 'Placa LoRa',
-                desc: 'Você escolhe, compatível com Meshtastic',
+                desc: (
+                  <>
+                    Você escolhe, com suporte a{' '}
+                    <ExternalLink href={externalLinks.meshtasticDevices}>Meshtastic</ExternalLink>
+                  </>
+                ),
               },
               { icon: LoRaIcon, label: 'LoRa 915 MHz', desc: 'Faixa ISM usada no Brasil' },
               {

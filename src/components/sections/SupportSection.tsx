@@ -1,7 +1,9 @@
 import { FC, useState } from 'react'
 import { Box, Button, Grid, Link, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
+import { QRCodeSVG } from 'qrcode.react'
 import { SectionContainer, SectionTitle } from '@/components/base'
+import { pixCode } from '@/data'
 import { GitHubIconCustom, PixIcon, Warning } from '@/icons'
 
 export const SupportSection: FC = () => {
@@ -9,10 +11,9 @@ export const SupportSection: FC = () => {
   const isDark = theme.palette.mode === 'dark'
   const [copied, setCopied] = useState(false)
 
-  const pixKey = '601e3f50-b8fb-4623-a4c5-19887de95e06'
-
   const handleCopyPixKey = (): void => {
-    navigator.clipboard.writeText(pixKey)
+    if (!pixCode) return
+    navigator.clipboard.writeText(pixCode)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -28,7 +29,7 @@ export const SupportSection: FC = () => {
       <SectionTitle
         label="01 — APOIE O PROJETO"
         title="Gratuito para sempre. Mantido por quem usa."
-        description="O MPU5 LoRa Mod não tem patrocínio nem fins lucrativos. Qualquer valor ajuda a cobrir filamento, placas para testes e o tempo dedicado às próximas versões."
+        description="O MPU5 LoRa Mod não tem patrocínio nem fins lucrativos. Qualquer valor ajuda a cobrir gastos com filamentos, placas para testes e o tempo dedicado às próximas versões."
         maxWidth="700px"
       />
 
@@ -71,48 +72,68 @@ export const SupportSection: FC = () => {
               </Typography>
             </Box>
 
-            <Typography sx={{ fontSize: '14px', lineHeight: 1.6, color: 'text.secondary' }}>
-              Aponte a câmera do app do seu banco ou copie a chave abaixo.
-            </Typography>
+            {pixCode ? (
+              <>
+                <Typography sx={{ fontSize: '14px', lineHeight: 1.6, color: 'text.secondary' }}>
+                  Aponte a câmera do app do seu banco ou use o Pix Copia e Cola abaixo.
+                </Typography>
 
-            <Box sx={{ display: 'flex', gap: 1, alignItems: 'stretch' }}>
-              <Box
-                sx={{
-                  flexGrow: 1,
-                  minWidth: 0,
-                  px: 1.75,
-                  height: 48,
-                  display: 'flex',
-                  alignItems: 'center',
-                  backgroundColor: 'background.default',
-                  border: `1px solid ${isDark ? '#2C3327' : '#e0e0e0'}`,
-                  borderRadius: '10px',
-                  fontFamily: 'IBM Plex Mono, monospace',
-                  fontSize: '13px',
-                  overflow: 'hidden',
-                  whiteSpace: 'nowrap',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                {pixKey}
-              </Box>
-              <Button
-                onClick={handleCopyPixKey}
-                variant="contained"
-                sx={{
-                  height: 48,
-                  px: 2,
-                  borderRadius: '10px',
-                  fontWeight: 600,
-                  fontSize: '14px',
-                  whiteSpace: 'nowrap',
-                  backgroundColor: 'primary.main',
-                  color: isDark ? '#140A02' : '#FFFFFF',
-                }}
-              >
-                {copied ? 'Copiado ✓' : 'Copiar'}
-              </Button>
-            </Box>
+                <Box
+                  sx={{
+                    alignSelf: 'center',
+                    p: 1.5,
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: '12px',
+                    lineHeight: 0,
+                  }}
+                >
+                  <QRCodeSVG value={pixCode} size={176} level="M" title="QR Code Pix" />
+                </Box>
+
+                <Box sx={{ display: 'flex', gap: 1, alignItems: 'stretch' }}>
+                  <Box
+                    sx={{
+                      flexGrow: 1,
+                      minWidth: 0,
+                      px: 1.75,
+                      height: 48,
+                      display: 'flex',
+                      alignItems: 'center',
+                      backgroundColor: 'background.default',
+                      border: `1px solid ${isDark ? '#2C3327' : '#e0e0e0'}`,
+                      borderRadius: '10px',
+                      fontFamily: 'IBM Plex Mono, monospace',
+                      fontSize: '13px',
+                      overflow: 'hidden',
+                      whiteSpace: 'nowrap',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {pixCode}
+                  </Box>
+                  <Button
+                    onClick={handleCopyPixKey}
+                    variant="contained"
+                    sx={{
+                      height: 48,
+                      px: 2,
+                      borderRadius: '10px',
+                      fontWeight: 600,
+                      fontSize: '14px',
+                      whiteSpace: 'nowrap',
+                      backgroundColor: 'primary.main',
+                      color: isDark ? '#140A02' : '#FFFFFF',
+                    }}
+                  >
+                    {copied ? 'Copiado ✓' : 'Copiar'}
+                  </Button>
+                </Box>
+              </>
+            ) : (
+              <Typography sx={{ fontSize: '14px', lineHeight: 1.6, color: 'text.secondary' }}>
+                Pix indisponível no momento.
+              </Typography>
+            )}
           </Box>
         </Grid>
 
@@ -237,7 +258,7 @@ export const SupportSection: FC = () => {
         >
           SPONSORS.md
         </Link>
-        . Prefere não aparecer? É só avisar na hora de doar.
+        . Prefere não aparecer? É só avisar no momento da doação.
       </Typography>
 
       {/* Aviso de licença */}

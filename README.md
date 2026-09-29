@@ -99,6 +99,10 @@ cd mpu5
 # Install dependencies (always with Yarn, never npm)
 yarn
 
+# Optional: configure environment variables (see .env.example)
+# VITE_PIX_CODE is the Pix "Copia e Cola" payload shown on the site
+cp .env.example .env.local
+
 # Start the development server
 yarn dev
 # Application will be at http://localhost:5173/
