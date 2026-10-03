@@ -8,20 +8,20 @@ on:
 
 jobs:
   lint-and-format:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run ESLint
         run: yarn lint
@@ -36,7 +36,7 @@ jobs:
         run: yarn build
 
   lint-result:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: lint-and-format
     if: failure()
     steps:

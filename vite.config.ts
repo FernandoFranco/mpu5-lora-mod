@@ -9,6 +9,24 @@ export default defineConfig({
   server: {
     port: 4000,
   },
+  build: {
+    chunkSizeWarningLimit: 800,
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            { name: 'three', test: /node_modules\/three\//, priority: 30 },
+            { name: 'mui', test: /node_modules\/(@mui|@emotion)\//, priority: 20 },
+            {
+              name: 'react',
+              test: /node_modules\/(react|react-dom|react-router|react-router-dom|scheduler)\//,
+              priority: 10,
+            },
+          ],
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, './src'),

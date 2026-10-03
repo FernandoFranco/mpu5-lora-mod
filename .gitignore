@@ -29,3 +29,5 @@ docs/superpowers/
 *.njsproj
 *.sln
 *.sw?
+
+.yarn/install-state.gz
