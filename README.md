@@ -164,9 +164,10 @@ Always free. Every donation is a one-time gift — no subscriptions, no recurrin
 strings attached. Donations pay for filament, test boards, and development hours.
 
 - **Pix**: Instant support (key and QR available on the site)
-- **GitHub Sponsors**: One-time support directly through GitHub
 
-Both count equally toward `SPONSORS.md`. Don't want to be listed? Just say so when you donate and
+<!-- - **GitHub Sponsors**: One-time support directly through GitHub -->
+
+Every donation counts toward `SPONSORS.md`. Don't want to be listed? Just say so when you donate and
 we'll leave your name out.
 
 ## Legal Notice
