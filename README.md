@@ -3,7 +3,7 @@
 ![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
 ![Yarn](https://img.shields.io/badge/Package%20Manager-Yarn-2C8EBB.svg)
 ![Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF.svg)
-[![GitHub](https://img.shields.io/badge/GitHub-your--user%2Fmpu5-black.svg)](https://github.com/your-user/mpu5)
+[![GitHub](https://img.shields.io/badge/GitHub-FernandoFranco%2Fmpu5--lora--mod-black.svg)](https://github.com/FernandoFranco/mpu5-lora-mod)
 
 Transform your MPU5 replica into a real mesh radio. STL files and complete guide to integrate a LoRa board supported by [Meshtastic](https://meshtastic.org/) inside the enclosure. Communicate without internet, no monthly fees, mesh network with your team.
 
@@ -93,8 +93,8 @@ Every folder above has a barrel `index.ts` — import from the folder (`@/icons`
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-user/mpu5.git
-cd mpu5
+git clone https://github.com/FernandoFranco/mpu5-lora-mod.git
+cd mpu5-lora-mod
 
 # Install dependencies (always with Yarn, never npm)
 yarn
@@ -191,4 +191,4 @@ See `LICENSE` for the complete legal text.
 
 Ready to build yours? Download the files, follow the guide, and get on the field connected.
 
-[![GitHub](https://img.shields.io/badge/View%20on%20GitHub-your--user%2Fmpu5-black?style=for-the-badge)](https://github.com/your-user/mpu5)
+[![GitHub](https://img.shields.io/badge/View%20on%20GitHub-FernandoFranco%2Fmpu5--lora--mod-black?style=for-the-badge)](https://github.com/FernandoFranco/mpu5-lora-mod)

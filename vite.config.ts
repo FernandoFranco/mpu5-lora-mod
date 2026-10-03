@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/mpu5/',
+  base: '/mpu5-lora-mod/',
   server: {
     port: 4000,
   },

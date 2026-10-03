@@ -33,7 +33,7 @@ export const App: FC = () => {
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <CssBaseline />
-      <BrowserRouter basename="/mpu5/">
+      <BrowserRouter basename="/mpu5-lora-mod/">
         <ScrollToTop />
         <Navbar onToggleTheme={toggleTheme} isDark={isDark} />
         <Routes>

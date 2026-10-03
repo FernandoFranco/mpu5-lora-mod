@@ -6,10 +6,14 @@ import { SectionContainer, SectionTitle } from '@/components/base'
 import { pixCode } from '@/data'
 import { GitHubIconCustom, PixIcon, Warning } from '@/icons'
 
+// Ocultado até o GitHub Sponsors ser aprovado; mude para true para reexibir o card.
+const showGitHubSponsors = false
+
 export const SupportSection: FC = () => {
   const theme = useTheme()
   const isDark = theme.palette.mode === 'dark'
   const [copied, setCopied] = useState(false)
+  const columnSize = showGitHubSponsors ? 4 : 6
 
   const handleCopyPixKey = (): void => {
     if (!pixCode) return
@@ -21,7 +25,11 @@ export const SupportSection: FC = () => {
   const contributionWays = [
     { label: 'Issues:', description: 'relate problemas de encaixe ou impressão.' },
     { label: 'Remixes:', description: 'adaptações para outras réplicas e placas.' },
-    { label: 'Fotos em campo:', description: 'mostre a sua montagem na comunidade.' },
+    {
+      label: 'Fotos em campo:',
+      description:
+        'mostre a sua montagem nas redes sociais, linkando o projeto ou marcando @franco.da.hk416.',
+    },
   ]
 
   return (
@@ -35,7 +43,7 @@ export const SupportSection: FC = () => {
 
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {/* Pix */}
-        <Grid size={{ xs: 12, md: 4 }}>
+        <Grid size={{ xs: 12, md: columnSize }}>
           <Box
             sx={{
               height: '100%',
@@ -138,55 +146,57 @@ export const SupportSection: FC = () => {
         </Grid>
 
         {/* GitHub Sponsors */}
-        <Grid size={{ xs: 12, md: 4 }}>
-          <Box
-            sx={{
-              height: '100%',
-              padding: 3.5,
-              backgroundColor: 'background.paper',
-              border: `1px solid ${isDark ? '#262C22' : '#e0e0e0'}`,
-              borderRadius: '20px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 2.5,
-            }}
-          >
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography
-                sx={{ fontFamily: 'Chakra Petch, sans-serif', fontWeight: 700, fontSize: '24px' }}
-              >
-                GitHub Sponsors
-              </Typography>
-              <GitHubIconCustom size="md" />
-            </Box>
-
-            <Typography sx={{ fontSize: '15px', lineHeight: 1.6, color: 'text.secondary' }}>
-              Direto pelo GitHub.
-            </Typography>
-
-            <Button
-              href="https://github.com/sponsors/your-user"
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="outlined"
+        {showGitHubSponsors && (
+          <Grid size={{ xs: 12, md: columnSize }}>
+            <Box
               sx={{
-                mt: 'auto',
-                height: 48,
-                borderRadius: '10px',
-                textTransform: 'none',
-                fontWeight: 600,
-                fontSize: '15px',
-                borderColor: isDark ? '#3A4333' : '#c0c0c0',
-                color: 'text.primary',
+                height: '100%',
+                padding: 3.5,
+                backgroundColor: 'background.paper',
+                border: `1px solid ${isDark ? '#262C22' : '#e0e0e0'}`,
+                borderRadius: '20px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2.5,
               }}
             >
-              Fazer uma doação
-            </Button>
-          </Box>
-        </Grid>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography
+                  sx={{ fontFamily: 'Chakra Petch, sans-serif', fontWeight: 700, fontSize: '24px' }}
+                >
+                  GitHub Sponsors
+                </Typography>
+                <GitHubIconCustom size="md" />
+              </Box>
+
+              <Typography sx={{ fontSize: '15px', lineHeight: 1.6, color: 'text.secondary' }}>
+                Direto pelo GitHub.
+              </Typography>
+
+              <Button
+                href="https://github.com/sponsors/FernandoFranco"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlined"
+                sx={{
+                  mt: 'auto',
+                  height: 48,
+                  borderRadius: '10px',
+                  textTransform: 'none',
+                  fontWeight: 600,
+                  fontSize: '15px',
+                  borderColor: isDark ? '#3A4333' : '#c0c0c0',
+                  color: 'text.primary',
+                }}
+              >
+                Fazer uma doação
+              </Button>
+            </Box>
+          </Grid>
+        )}
 
         {/* Contribua sem gastar */}
-        <Grid size={{ xs: 12, md: 4 }}>
+        <Grid size={{ xs: 12, md: columnSize }}>
           <Box
             sx={{
               height: '100%',
@@ -227,7 +237,7 @@ export const SupportSection: FC = () => {
             </Box>
 
             <Button
-              href="https://github.com/your-user/mpu5/blob/main/CONTRIBUTING.md"
+              href="https://github.com/FernandoFranco/mpu5-lora-mod/blob/main/CONTRIBUTING.md"
               target="_blank"
               rel="noopener noreferrer"
               variant="outlined"
@@ -249,9 +259,10 @@ export const SupportSection: FC = () => {
       </Grid>
 
       <Typography sx={{ fontSize: '14px', lineHeight: 1.6, color: 'text.secondary', mb: 4 }}>
-        Toda doação, via Pix ou GitHub, pode entrar na lista pública de apoiadores em{' '}
+        Toda doação{showGitHubSponsors ? ', via Pix ou GitHub,' : ' via Pix'} pode entrar na lista
+        pública de apoiadores em{' '}
         <Link
-          href="https://github.com/your-user/mpu5/blob/main/SPONSORS.md"
+          href="https://github.com/FernandoFranco/mpu5-lora-mod/blob/main/SPONSORS.md"
           target="_blank"
           rel="noopener noreferrer"
           sx={{ color: 'primary.main' }}
@@ -295,7 +306,7 @@ export const SupportSection: FC = () => {
           </Typography>
           <Box sx={{ display: 'flex', gap: 3, mt: 0.5, flexWrap: 'wrap' }}>
             <Link
-              href="https://github.com/your-user/mpu5/blob/main/LICENSE"
+              href="https://github.com/FernandoFranco/mpu5-lora-mod/blob/main/LICENSE"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ fontSize: '14px', fontWeight: 600, color: 'primary.main' }}
@@ -303,7 +314,7 @@ export const SupportSection: FC = () => {
               Ver LICENSE completo
             </Link>
             <Link
-              href="https://github.com/your-user/mpu5/issues/new"
+              href="https://github.com/FernandoFranco/mpu5-lora-mod/issues/new"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ fontSize: '14px', fontWeight: 600, color: 'primary.main' }}

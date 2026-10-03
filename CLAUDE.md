@@ -162,7 +162,7 @@ Each section is a separate component in `src/components/sections/`, composed via
 
 ## Build and Deployment
 
-- **Vite Config**: Base path is `/mpu5/` for GitHub Pages deployment
+- **Vite Config**: Base path is `/mpu5-lora-mod/` for GitHub Pages deployment
 - **GitHub Pages**: Automatic deployment on push to `main` or `master` branches
 - **CI**: `.github/workflows/lint-and-format.yml` runs lint, format check, typecheck, and build on every push/PR to `main`/`master`
 

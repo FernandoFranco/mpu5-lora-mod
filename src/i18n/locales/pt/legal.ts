@@ -78,7 +78,7 @@ export const legal: LegalResources = {
       {
         heading: '12. Contato',
         paragraphs: [
-          'Dúvidas sobre estes Termos de Uso podem ser enviadas através das Issues do repositório no GitHub: https://github.com/FernandoHAFranco/mpu5/issues',
+          'Dúvidas sobre estes Termos de Uso podem ser enviadas através das Issues do repositório no GitHub: https://github.com/FernandoFranco/mpu5-lora-mod/issues',
         ],
       },
     ],
@@ -163,7 +163,7 @@ export const legal: LegalResources = {
       {
         heading: '11. Contato',
         paragraphs: [
-          'Para exercer seus direitos ou tirar dúvidas sobre esta política, utilize as Issues do repositório no GitHub: https://github.com/FernandoHAFranco/mpu5/issues',
+          'Para exercer seus direitos ou tirar dúvidas sobre esta política, utilize as Issues do repositório no GitHub: https://github.com/FernandoFranco/mpu5-lora-mod/issues',
         ],
       },
     ],

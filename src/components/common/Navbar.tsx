@@ -164,7 +164,7 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
         {!isMobile && (
           <IconButton
             component="a"
-            href="https://github.com/FernandoHAFranco/mpu5"
+            href="https://github.com/FernandoFranco/mpu5-lora-mod"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"

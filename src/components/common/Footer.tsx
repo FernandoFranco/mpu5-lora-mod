@@ -53,7 +53,7 @@ export const Footer: FC<FooterProps> = ({ onOpenCookiePreferences }) => {
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
               <Link
-                href="https://github.com"
+                href="https://github.com/FernandoFranco/mpu5-lora-mod"
                 target="_blank"
                 rel="noopener"
                 sx={{
@@ -104,7 +104,7 @@ export const Footer: FC<FooterProps> = ({ onOpenCookiePreferences }) => {
                 Privacidade
               </Link>
               <Link
-                href="https://github.com/FernandoHAFranco/mpu5/blob/main/LICENSE"
+                href="https://github.com/FernandoFranco/mpu5-lora-mod/blob/main/LICENSE"
                 target="_blank"
                 rel="noopener"
                 sx={{
@@ -117,7 +117,7 @@ export const Footer: FC<FooterProps> = ({ onOpenCookiePreferences }) => {
                 Licença (CC BY-NC-SA 4.0)
               </Link>
               <Link
-                href="https://github.com/FernandoHAFranco/mpu5/issues/new"
+                href="https://github.com/FernandoFranco/mpu5-lora-mod/issues/new"
                 target="_blank"
                 rel="noopener"
                 sx={{
