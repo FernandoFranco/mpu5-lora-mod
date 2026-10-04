@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Box, Container, Typography, Link, useTheme } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import { GitHubIconCustom, LoRaIcon } from '@/icons'
+import { GitHubIconCustom, Mpu5LogoIcon } from '@/icons'
 import type { FooterProps } from '@/types'
 
 export const Footer: FC<FooterProps> = ({ onOpenCookiePreferences }) => {
@@ -29,7 +29,7 @@ export const Footer: FC<FooterProps> = ({ onOpenCookiePreferences }) => {
           <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
               <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
-                <LoRaIcon size="md" />
+                <Mpu5LogoIcon size="md" />
               </Box>
               <Box>
                 <Box sx={{ fontSize: '0.85rem', fontWeight: 700, lineHeight: 1 }}>

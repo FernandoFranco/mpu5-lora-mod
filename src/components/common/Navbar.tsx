@@ -14,7 +14,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { CloseIcon, GitHubIconCustom, LoRaIcon, MenuIcon, MoonIcon, SunIcon } from '@/icons'
+import { CloseIcon, GitHubIconCustom, MenuIcon, MoonIcon, Mpu5LogoIcon, SunIcon } from '@/icons'
 import type { NavbarProps } from '@/types'
 
 const navLinks = [
@@ -105,7 +105,7 @@ export const Navbar: FC<NavbarProps> = ({ onToggleTheme, isDark }) => {
           }}
         >
           <Box sx={{ color: theme.palette.primary.main, display: 'flex', lineHeight: 0 }}>
-            <LoRaIcon size="md" />
+            <Mpu5LogoIcon size="md" />
           </Box>
           <Box>
             <Box sx={{ fontSize: '0.75rem', fontWeight: 700, lineHeight: 1 }}>MPU5 LoRa Mod</Box>
